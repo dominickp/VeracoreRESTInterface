@@ -49,6 +49,15 @@ class VeracoreOrder
         $this->order->BillTo->Comments = $comments;
     }
 
+    public function addOffer($quantity = 1, $offerId)
+    {
+        $this->order->Offers->OfferOrdered = new stdClass();
+        $this->order->Offers->OfferOrdered->Offer->Header = new stdClass();
+
+        $this->order->Offers->OfferOrdered->Quantity = $quantity;
+        $this->order->Offers->OfferOrdered->Offer->Header->ID = $offerId;
+    }
+
     public function getOrder()
     {
         return $this->order;

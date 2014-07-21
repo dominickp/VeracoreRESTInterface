@@ -11,17 +11,18 @@ $password = 'cot!32';
 $veracore = new VeracoreSoap($wsdl, $username, $password);
 
 $order = new VeracoreOrder();
+
 $order->setHeader(123, 'testcomments');
 $order->setShipTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments');
 $order->setBillTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments');
+$order->addOffer(10, 'test_id');
+
 $newOrder = $order->getOrder();
 
 $veracore->addOrder($newOrder);
 
-print_r($order); die;
-
 $soap = $veracore->testSoap();
 
 #header('Content-Type: application/xml; charset=utf-8');
-echo '<pre>';
+echo '<hr><pre>';
 print_r($soap);
