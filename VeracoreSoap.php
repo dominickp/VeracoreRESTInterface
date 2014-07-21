@@ -32,6 +32,8 @@ class VeracoreSoap
         // Initiate SoapClient
         try{
             $this->soapClient = new \SoapClient($this->wsdl, array(
+                "soap_version" => SOAP_1_1,
+                'trace' => 1, // debugging
                 "connection_timeout"=>1.5,
                 "exceptions" => true,
                 "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
@@ -41,23 +43,26 @@ class VeracoreSoap
             $header = new SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
             $this->soapClient->__setSoapHeaders($header);
         } catch(Exception $e) {
-            echo 'We experienced aan error: '. $e->getMessage();
+            echo 'We experienced an SoapClient initialization error: '. $e->getMessage();
         }
     }
 
-    public function addOrder()
+    public function addOrder($order)
     {
         try{
-            $response = $this->soapClient->AddOrder(array('Test'));
+            $response = $this->soapClient->AddOrder(
+                array('order' => $order)
+            );
         } catch(Exception $e){
-            echo 'We experienced an error: '. $e->getMessage();
+           echo 'We experienced an addOrder error: '. $e->getMessage();
+           $response = null;
         }
         return $response;
     }
 
     public function testSoap()
     {
-        return $this->soapClient->__getLastRequest();
+        return htmlentities($this->soapClient->__getLastRequest());
     }
 
     public function getWsdl()

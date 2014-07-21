@@ -23,19 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="1" selection-start="273" selection-end="273" vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="368">
+            <state line="15" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.26200873" vertical-offset="0" max-vertical-offset="916">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VeracoreSoap.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="VeracoreSoap.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="0" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.7860262" vertical-offset="128" max-vertical-offset="1152">
+            <state line="57" column="11" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-23.84" vertical-offset="316" max-vertical-offset="1232">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VeracoreOrder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="29" selection-start="926" selection-end="926" vertical-scroll-proportion="-19.2" vertical-offset="0" max-vertical-offset="992">
               <folding />
             </state>
           </provider>
@@ -51,8 +60,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/VeracoreSoap.php" />
+        <option value="$PROJECT_DIR$/VeracoreOrder.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -186,16 +196,23 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="1" selection-start="273" selection-end="273" vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="368">
+        <state line="57" column="11" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-23.84" vertical-offset="316" max-vertical-offset="1232">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
+    <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.7860262" vertical-offset="128" max-vertical-offset="1152">
+        <state line="30" column="29" selection-start="926" selection-end="926" vertical-scroll-proportion="-19.2" vertical-offset="0" max-vertical-offset="992">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.26200873" vertical-offset="0" max-vertical-offset="916">
           <folding />
         </state>
       </provider>
