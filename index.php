@@ -8,3 +8,7 @@ $username = 'cambridge';
 $password = 'cot!32';
 
 $veracore = new VeracoreSoap($wsdl, $username, $password);
+
+$soap = $veracore->testSoap();
+
+print_r($soap);
