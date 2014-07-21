@@ -9,7 +9,7 @@ class VeracoreSoap
 
     protected $xmlns;
 
-    protected $soap;
+    protected $soapClient;
 
     public function __construct($wsdl, $username, $password)
     {
@@ -31,7 +31,7 @@ class VeracoreSoap
 
         // Initiate SoapClient
         try{
-            $this->soap = new \SoapClient($this->wsdl, array(
+            $this->soapClient = new \SoapClient($this->wsdl, array(
                 "connection_timeout"=>1.5,
                 "exceptions" => true,
                 "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
@@ -39,15 +39,25 @@ class VeracoreSoap
 
             // Set header
             $header = new SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
-            $this->soap->__setSoapHeaders($header);
+            $this->soapClient->__setSoapHeaders($header);
         } catch(Exception $e) {
-            echo 'We experienced a timeout! '. $e->getMessage();
+            echo 'We experienced aan error: '. $e->getMessage();
         }
+    }
+
+    public function addOrder()
+    {
+        try{
+            $response = $this->soapClient->AddOrder(array('Test'));
+        } catch(Exception $e){
+            echo 'We experienced an error: '. $e->getMessage();
+        }
+        return $response;
     }
 
     public function testSoap()
     {
-        return $this->soap;
+        return $this->soapClient->__getLastRequest();
     }
 
     public function getWsdl()
