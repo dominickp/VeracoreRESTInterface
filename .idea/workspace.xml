@@ -26,7 +26,7 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="27" selection-start="772" selection-end="772" vertical-scroll-proportion="0.47161573" vertical-offset="0" max-vertical-offset="916">
+            <state line="31" column="2" selection-start="881" selection-end="881" vertical-scroll-proportion="0.5414847" vertical-offset="0" max-vertical-offset="916">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="VeracoreOrder.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="5" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-19.84" vertical-offset="0" max-vertical-offset="1152">
+            <state line="39" column="8" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-19.2" vertical-offset="144" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -205,14 +205,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="5" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-19.84" vertical-offset="0" max-vertical-offset="1152">
+        <state line="39" column="8" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-19.2" vertical-offset="144" max-vertical-offset="1200">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="27" selection-start="772" selection-end="772" vertical-scroll-proportion="0.47161573" vertical-offset="0" max-vertical-offset="916">
+        <state line="31" column="2" selection-start="881" selection-end="881" vertical-scroll-proportion="0.5414847" vertical-offset="0" max-vertical-offset="916">
           <folding />
         </state>
       </provider>

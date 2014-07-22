@@ -14,20 +14,22 @@ $veracore = new VeracoreSoap($wsdl, $username, $password);
 $order = new VeracoreOrder();
 
 // Build the Order
-$order->setHeader(123, 'testcomments');
-$order->setShipTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments');
+$shipToKey = 1;
+$order->setHeader(null, 'testcomments');
+$order->setShipTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments', 'Other', $shipToKey);
 $order->setBillTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments');
-$order->addOffer(10, 'test_id');
+$order->addOffer(10, 'CAM-VISIT', $shipToKey);
 
 // Get the Order as an object
 $newOrder = $order->getOrder();
 
 // Pass to addOrder of VeracoreSoap
-$veracore->addOrder($newOrder);
+$addOrderResponse = $veracore->addOrder($newOrder);
 
+/*
 // Get response as HTML/XML
 $soap = $veracore->testSoap();
-
+*/
 #header('Content-Type: application/xml; charset=utf-8');
 echo '<hr><pre>';
-print_r($soap);
+print_r($addOrderResponse);

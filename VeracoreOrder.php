@@ -28,7 +28,7 @@ class VeracoreOrder
         $this->order->Header->Comments = $Comments;
     }
 
-    public function setShipTo($fullName, $cityStateZip, $cityStateZipCountry, $comments, $flag = 'Other')
+    public function setShipTo($fullName, $cityStateZip, $cityStateZipCountry, $comments, $flag = 'Other', $shipToKey = 1)
     {
         $this->order->ShipTo->OrderShipTo = new stdClass();
 
@@ -37,6 +37,7 @@ class VeracoreOrder
         $this->order->ShipTo->OrderShipTo->CityStateZip = $cityStateZip;
         $this->order->ShipTo->OrderShipTo->CityStateZipCountry = $cityStateZipCountry;
         $this->order->ShipTo->OrderShipTo->Comments = $comments;
+        $this->order->ShipTo->OrderShipTo->Key = $shipToKey;
     }
 
     public function setBillTo($fullName, $cityStateZip, $cityStateZipCountry, $comments, $flag = 'Other')
@@ -49,13 +50,15 @@ class VeracoreOrder
         $this->order->BillTo->Comments = $comments;
     }
 
-    public function addOffer($quantity = 1, $offerId)
+    public function addOffer($quantity = 1, $offerId, $shipToKey = 1)
     {
         $this->order->Offers->OfferOrdered = new stdClass();
         $this->order->Offers->OfferOrdered->Offer = new stdClass();
         $this->order->Offers->OfferOrdered->Offer->Header = new stdClass();
+        $this->order->Offers->OfferOrdered->OrderShipTo = new stdClass();
 
         $this->order->Offers->OfferOrdered->Quantity = $quantity;
+        $this->order->Offers->OfferOrdered->OrderShipTo->Key = $shipToKey;
         $this->order->Offers->OfferOrdered->Offer->Header->ID = $offerId;
     }
 
