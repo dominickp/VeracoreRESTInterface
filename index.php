@@ -13,11 +13,28 @@ $veracore = new VeracoreSoap($wsdl, $username, $password);
 // Instance of an Order to pass to the addOrder method
 $order = new VeracoreOrder();
 
+// Make address array
+$address = array(
+    'FirstName' => 'Gabriel',
+    'LastName'  => 'Peluso',
+    'Address1'  => '33 Cherry Hill Drive',
+    'Address2'  => 'Warehouse',
+    'Address3'  => '',
+    'Company'   => 'Shawmut Communications Group',
+    'City'      => 'Danvers',
+    'State'     => 'MA',
+    'Country'   => 'US',
+    'PostalCode' => '01923',
+    'Email'     => 'gabrielp@shawmutprinting.com',
+    'Phone'     => '978-762-7500',
+);
+
 // Build the Order
 $shipToKey = 1;
 $order->setHeader(null, 'testcomments');
-$order->setShipTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments', 'Other', $shipToKey);
-$order->setBillTo('Gabriel Peluso', 'Danvers, MA 01923', 'Danvers, MA 01923 US', 'Comments');
+$order->setShipTo(null, null, 'OrderedBy', $shipToKey);
+$order->setBillTo('OrderedBy');
+$order->setOrderedBy($address, 'Comments');
 $order->addOffer(10, 'CAM-VISIT', $shipToKey);
 $order->addOffer(10, 'CAM-VISIT', $shipToKey);
 
@@ -26,7 +43,6 @@ $newOrder = $order->getOrder();
 
 // Pass to addOrder of VeracoreSoap
 $addOrderResponse = $veracore->addOrder($newOrder);
-
 
 // Get response as HTML/XML
 $soap = $veracore->testSoap();

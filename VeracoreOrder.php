@@ -32,26 +32,83 @@ class VeracoreOrder
         $this->order->Header->Comments = $Comments;
     }
 
-    public function setShipTo($fullName, $cityStateZip, $cityStateZipCountry, $comments, $flag = 'Other', $shipToKey = 1)
+    protected function validateAddress($address)
     {
-        $this->order->ShipTo->OrderShipTo = new stdClass();
+        $address['FullName'] = $address['FirstName'].' '.$address['LastName'];
+        $address['CityStateZip'] = $address['City'].', '.$address['State'].$address['PostalCode'];
+        $address['CityStateZipCountry'] = $address['City'].', '.$address['State'].' '.$address['PostalCode'].' '.$address['Country'];
 
-        $this->order->ShipTo->OrderShipTo->Flag = $flag;
-        $this->order->ShipTo->OrderShipTo->FullName = $fullName;
-        $this->order->ShipTo->OrderShipTo->CityStateZip = $cityStateZip;
-        $this->order->ShipTo->OrderShipTo->CityStateZipCountry = $cityStateZipCountry;
-        $this->order->ShipTo->OrderShipTo->Comments = $comments;
-        $this->order->ShipTo->OrderShipTo->Key = $shipToKey;
+        return $address;
     }
 
-    public function setBillTo($fullName, $cityStateZip, $cityStateZipCountry, $comments, $flag = 'Other')
+    public function setOrderedBy($inputAddress, $comments = null)
+    {
+        $address = $this->validateAddress($inputAddress);
+
+        $OrderedBy = new stdClass();
+
+        $OrderedBy->FirstName = $address['FirstName'];
+        $OrderedBy->LastName = $address['LastName'];
+        $OrderedBy->CompanyName = $address['Company'];
+        $OrderedBy->Address1 = $address['Address1'];
+        $OrderedBy->Address2 = $address['Address2'];
+        $OrderedBy->Address3 = $address['Address3'];
+        $OrderedBy->City = $address['City'];
+        $OrderedBy->Country = $address['Country'];
+        $OrderedBy->State = $address['State'];
+        $OrderedBy->PostalCode = $address['PostalCode'];
+        $OrderedBy->Phone = $address['Phone'];
+        $OrderedBy->Email = $address['Email'];
+
+        $OrderedBy->Comments = $comments;
+
+        $this->order->OrderedBy = $OrderedBy;
+    }
+
+    public function setShipTo($inputAddress = null, $comments = null, $flag = 'Other', $shipToKey = 1)
+    {
+
+        $OrderShipTo = new stdClass();
+
+        if($flag == 'OrderedBy'){
+            $OrderShipTo->Flag = $flag;
+            $OrderShipTo->Key = $shipToKey;
+            $OrderShipTo->Comments = $comments;
+        } else {
+
+            if(empty($address)) throw new Exception('Address may only be blank if Flag is set to "OrderedBy".');
+
+            $address = $this->validateAddress($inputAddress);
+
+            $OrderShipTo->Flag = $flag;
+            $OrderShipTo->Key = $shipToKey;
+
+            $OrderShipTo->FirstName = $address['FirstName'];
+            $OrderShipTo->LastName = $address['LastName'];
+            $OrderShipTo->CompanyName = $address['Company'];
+            $OrderShipTo->Address1 = $address['Address1'];
+            $OrderShipTo->Address2 = $address['Address2'];
+            $OrderShipTo->Address3 = $address['Address3'];
+            $OrderShipTo->City = $address['City'];
+            $OrderShipTo->Country = $address['Country'];
+            $OrderShipTo->State = $address['State'];
+            $OrderShipTo->PostalCode = $address['PostalCode'];
+            $OrderShipTo->Phone = $address['Phone'];
+            $OrderShipTo->Email = $address['Email'];
+
+            $OrderShipTo->Comments = $comments;
+
+        }
+
+        $this->order->ShipTo->OrderShipTo = $OrderShipTo;
+
+    }
+
+    public function setBillTo($flag = 'Other')
     {
 
         $this->order->BillTo->Flag = $flag;
-        $this->order->BillTo->FullName = $fullName;
-        $this->order->BillTo->CityStateZip = $cityStateZip;
-        $this->order->BillTo->CityStateZipCountry = $cityStateZipCountry;
-        $this->order->BillTo->Comments = $comments;
+
     }
 
     public function addOffer($quantity = 1, $offerId, $shipToKey = 1)
