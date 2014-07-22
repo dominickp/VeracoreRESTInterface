@@ -34,35 +34,39 @@ class VeracoreOrder
 
     protected function validateAddress($address)
     {
-        $address['FullName'] = $address['FirstName'].' '.$address['LastName'];
-        $address['CityStateZip'] = $address['City'].', '.$address['State'].$address['PostalCode'];
-        $address['CityStateZipCountry'] = $address['City'].', '.$address['State'].' '.$address['PostalCode'].' '.$address['Country'];
+        $addressObject = new stdClass();
 
-        return $address;
+        // Required fields
+        $addressObject->FirstName = $address['FirstName'];
+        $addressObject->LastName = $address['LastName'];
+        $addressObject->Address1 = $address['Address1'];
+        $addressObject->City = $address['City'];
+        $addressObject->State = $address['State'];
+        $addressObject->PostalCode = $address['PostalCode'];
+
+        // Optional fields
+        if(isset($address['Company'])) $addressObject->CompanyName = $address['Company'];
+        if(isset($address['Address2'])) $addressObject->Address2 = $address['Address2'];
+        if(isset($address['Address3'])) $addressObject->Address3 = $address['Address3'];
+        if(isset($address['Country'])) $addressObject->Country = $address['Country'];
+        if(isset($address['Phone'])) $addressObject->Phone = $address['Phone'];
+        if(isset($address['Email'])) $addressObject->Email = $address['Email'];
+
+        // Generated
+        $addressObject->FullName = $address['FirstName'].' '.$address['LastName'];
+        $addressObject->CityStateZip = $address['City'].', '.$address['State'].$address['PostalCode'];
+        $addressObject->CityStateZipCountry = $address['City'].', '.$address['State'].' '.$address['PostalCode'].' '.$address['Country'];
+
+        return $addressObject;
     }
 
     public function setOrderedBy($inputAddress, $comments = null)
     {
-        $address = $this->validateAddress($inputAddress);
+        $addressObject = $this->validateAddress($inputAddress);
 
-        $OrderedBy = new stdClass();
+        $addressObject->Comments = $comments;
 
-        $OrderedBy->FirstName = $address['FirstName'];
-        $OrderedBy->LastName = $address['LastName'];
-        $OrderedBy->CompanyName = $address['Company'];
-        $OrderedBy->Address1 = $address['Address1'];
-        $OrderedBy->Address2 = $address['Address2'];
-        $OrderedBy->Address3 = $address['Address3'];
-        $OrderedBy->City = $address['City'];
-        $OrderedBy->Country = $address['Country'];
-        $OrderedBy->State = $address['State'];
-        $OrderedBy->PostalCode = $address['PostalCode'];
-        $OrderedBy->Phone = $address['Phone'];
-        $OrderedBy->Email = $address['Email'];
-
-        $OrderedBy->Comments = $comments;
-
-        $this->order->OrderedBy = $OrderedBy;
+        $this->order->OrderedBy = $addressObject;
     }
 
     public function setShipTo($inputAddress = null, $comments = null, $flag = 'Other', $shipToKey = 1)
@@ -78,23 +82,10 @@ class VeracoreOrder
 
             if(empty($address)) throw new Exception('Address may only be blank if Flag is set to "OrderedBy".');
 
-            $address = $this->validateAddress($inputAddress);
+            $OrderShipTo = $this->validateAddress($inputAddress);
 
             $OrderShipTo->Flag = $flag;
             $OrderShipTo->Key = $shipToKey;
-
-            $OrderShipTo->FirstName = $address['FirstName'];
-            $OrderShipTo->LastName = $address['LastName'];
-            $OrderShipTo->CompanyName = $address['Company'];
-            $OrderShipTo->Address1 = $address['Address1'];
-            $OrderShipTo->Address2 = $address['Address2'];
-            $OrderShipTo->Address3 = $address['Address3'];
-            $OrderShipTo->City = $address['City'];
-            $OrderShipTo->Country = $address['Country'];
-            $OrderShipTo->State = $address['State'];
-            $OrderShipTo->PostalCode = $address['PostalCode'];
-            $OrderShipTo->Phone = $address['Phone'];
-            $OrderShipTo->Email = $address['Email'];
 
             $OrderShipTo->Comments = $comments;
 
