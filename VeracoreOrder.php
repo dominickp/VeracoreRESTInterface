@@ -5,6 +5,8 @@ class VeracoreOrder
 
     protected $order;
 
+    protected $offers;
+
     public function __construct()
     {
         $this->order = new stdClass();
@@ -17,9 +19,11 @@ class VeracoreOrder
         $this->order->OrderedBy = new stdClass();
         $this->order->ShipTo = new stdClass();
         $this->order->BillTo = new stdClass();
-        $this->order->Offers = new stdClass();
+        $this->order->Offers = new ArrayObject();
         $this->order->OrderRecurrenceSchedule = new stdClass();
         $this->order->OrderBudget = new stdClass();
+
+        $this->offers = array();
     }
 
     public function setHeader($ID, $Comments)
@@ -52,18 +56,43 @@ class VeracoreOrder
 
     public function addOffer($quantity = 1, $offerId, $shipToKey = 1)
     {
-        $this->order->Offers->OfferOrdered = new stdClass();
-        $this->order->Offers->OfferOrdered->Offer = new stdClass();
-        $this->order->Offers->OfferOrdered->Offer->Header = new stdClass();
-        $this->order->Offers->OfferOrdered->OrderShipTo = new stdClass();
+        /*
+        $offerOrdered = new stdClass();
 
-        $this->order->Offers->OfferOrdered->Quantity = $quantity;
-        $this->order->Offers->OfferOrdered->OrderShipTo->Key = $shipToKey;
-        $this->order->Offers->OfferOrdered->Offer->Header->ID = $offerId;
+        $offerOrdered->Offer = new stdClass();
+        $offerOrdered->Offer->Header = new stdClass();
+        $offerOrdered->OrderShipTo = new stdClass();
+
+        $offerOrdered->Quantity = $quantity;
+        $offerOrdered->OrderShipTo->Key = $shipToKey;
+        $offerOrdered->Offer->Header->ID = $offerId;
+
+        */
+
+        $namespace = 'ns1:';
+        $typename = null;
+
+        $offerHeaderId = array();
+        $offerHeaderId[] = new SoapVar($offerId, XSD_STRING, $typename, $namespace, $namespace.'ID');
+
+        $offerHeader = array();
+        $offerHeader[] = new SoapVar($offerHeaderId, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Header');
+
+        $orderShipToKey = array();
+        $orderShipToKey[] = new SoapVar($shipToKey, XSD_STRING, $typename, $namespace, $namespace.'Key');
+
+        $offer[] = new SoapVar($offerHeader, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Offer');
+        $offer[] = new SoapVar($quantity, XSD_STRING, $typename, $namespace, $namespace.'Quantity');
+        $offer[] = new SoapVar($orderShipToKey, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderShipTo');
+
+        $this->offers[] = new SoapVar($offer, SOAP_ENC_OBJECT, null, 'OfferOrdered');
     }
 
     public function getOrder()
     {
+        // Set offers
+        $this->order->Offers = $this->offers;
+
         return $this->order;
     }
 
