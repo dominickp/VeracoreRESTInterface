@@ -53,11 +53,32 @@ class VeracoreOrder
         if(isset($address['Email'])) $addressObject->Email = $address['Email'];
 
         // Generated
-        $addressObject->FullName = $address['FirstName'].' '.$address['LastName'];
-        $addressObject->CityStateZip = $address['City'].', '.$address['State'].$address['PostalCode'];
-        $addressObject->CityStateZipCountry = $address['City'].', '.$address['State'].' '.$address['PostalCode'].' '.$address['Country'];
+        #$addressObject->FullName = $address['FirstName'].' '.$address['LastName'];
+        #$addressObject->CityStateZip = $address['City'].', '.$address['State'].$address['PostalCode'];
+        #$addressObject->CityStateZipCountry = $address['City'].', '.$address['State'].' '.$address['PostalCode'].' '.$address['Country'];
 
         return $addressObject;
+    }
+
+    public function setOrderVariables($orderVariableArray)
+    {
+        $orderVariables = array();
+
+        $namespace = 'ns1:';
+        $typename = null;
+
+        foreach($orderVariableArray as $fieldName => $value){
+            $orderVariable = array();
+            $fieldnameArray = array($namespace.'FieldName' => $fieldName);
+            $orderVariable[] = new SoapVar($fieldnameArray, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'VariableField');
+            $orderVariable[] = new SoapVar($value, XSD_STRING, $typename, $namespace, $namespace.'Value');
+
+            $orderVariables[] = new SoapVar($orderVariable, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderVariable');
+        }
+
+
+        $this->order->OrderVariables = $orderVariables;
+
     }
 
     public function setOrderedBy($inputAddress, $comments = null)

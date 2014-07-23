@@ -38,6 +38,13 @@ $order->setOrderedBy($address, 'Comments');
 $order->addOffer(10, 'CAM-VISIT', $shipToKey);
 $order->addOffer(10, 'CAM-VISIT', $shipToKey);
 
+$orderVariables = array(
+    'length_of_stay' => '1 week',
+    'reason_for_stay' => 'vacation',
+    'age_range' => '1 - 20 years old'
+);
+$order->setOrderVariables($orderVariables);
+
 // Get the Order as an object
 $newOrder = $order->getOrder();
 

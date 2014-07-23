@@ -17,6 +17,7 @@ try{
     $soapClient = new SoapClient($wsdl, array(
         "connection_timeout"=>1.5,
         "exceptions" => true,
+        'trace' => 1,
         "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
     ));
     $soapClient->Credentials = array("Username" => $username, "Password" => $password);
@@ -32,6 +33,8 @@ $blnPriceOnLineReadyOnly = false;
 $lngNumberOfRecords = 50;
 
 // Make the SOAP call and get a response
-$response = $soapClient->GetJobList($filterType, $filterCriteria, $filterCriteria, $blnPriceOnLineReadyOnly, $lngNumberOfRecords);
+$response = $soapClient->GetJobList($jobType, $filterType, $filterCriteria, $blnPriceOnLineReadyOnly, $lngNumberOfRecords);
 
 print_r($response);
+echo '<hr>';
+print_r(htmlentities($soapClient->__getLastRequest()));

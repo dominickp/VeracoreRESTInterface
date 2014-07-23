@@ -26,9 +26,9 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="511" selection-end="511" vertical-scroll-proportion="-13.44" vertical-offset="0" max-vertical-offset="944">
+            <state line="44" column="2" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-28.16" vertical-offset="0" max-vertical-offset="1056">
               <folding>
-                <marker date="1406057379204" expanded="true" signature="1374:1389" placeholder="..." />
+                <marker date="1406141502585" expanded="true" signature="1556:1571" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -37,7 +37,7 @@
       <file leaf-file-name="VeracoreSoap.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="11" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-23.76" vertical-offset="318" max-vertical-offset="1232">
+            <state line="64" column="8" selection-start="1737" selection-end="1796" vertical-scroll-proportion="-28.24" vertical-offset="318" max-vertical-offset="1232">
               <folding />
             </state>
           </provider>
@@ -46,7 +46,7 @@
       <file leaf-file-name="VeracoreOrder.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="38" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.57986873" vertical-offset="862" max-vertical-offset="2432">
+            <state line="71" column="47" selection-start="2650" selection-end="2650" vertical-scroll-proportion="0.7702407" vertical-offset="432" max-vertical-offset="2768">
               <folding />
             </state>
           </provider>
@@ -55,7 +55,7 @@
       <file leaf-file-name="epmsSoap.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epmsSoap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="14" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.04" vertical-offset="0" max-vertical-offset="672">
+            <state line="39" column="54" selection-start="1233" selection-end="1233" vertical-scroll-proportion="-24.96" vertical-offset="0" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -80,9 +80,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.4.12" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1914" />
-    <option name="y" value="33" />
-    <option name="width" value="1932" />
+    <option name="x" value="58" />
+    <option name="y" value="-6" />
+    <option name="width" value="1868" />
     <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -170,7 +170,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1914" y="33" width="1932" height="1092" extended-state="6" />
+    <frame x="58" y="-6" width="1868" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -178,7 +178,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15548456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16097023" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -214,7 +214,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="664" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="688">
           <folding>
-            <marker date="1406057379204" expanded="true" signature="1374:1389" placeholder="..." />
+            <marker date="1406141502585" expanded="true" signature="1556:1571" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -237,7 +237,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="13" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="656">
           <folding>
-            <marker date="1406057379204" expanded="true" signature="1374:1389" placeholder="..." />
+            <marker date="1406141502585" expanded="true" signature="1556:1571" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -256,32 +256,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epmsSoap.php">
+    <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="14" selection-start="343" selection-end="343" vertical-scroll-proportion="-7.04" vertical-offset="0" max-vertical-offset="672">
+        <state line="64" column="8" selection-start="1737" selection-end="1796" vertical-scroll-proportion="-28.24" vertical-offset="318" max-vertical-offset="1232">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VeracoreSoap.php">
+    <entry file="file://$PROJECT_DIR$/epmsSoap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="11" selection-start="1631" selection-end="1631" vertical-scroll-proportion="-23.76" vertical-offset="318" max-vertical-offset="1232">
+        <state line="39" column="54" selection-start="1233" selection-end="1233" vertical-scroll-proportion="-24.96" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="511" selection-end="511" vertical-scroll-proportion="-13.44" vertical-offset="0" max-vertical-offset="944">
+        <state line="44" column="2" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-28.16" vertical-offset="0" max-vertical-offset="1056">
           <folding>
-            <marker date="1406057379204" expanded="true" signature="1374:1389" placeholder="..." />
+            <marker date="1406141502585" expanded="true" signature="1556:1571" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VeracoreOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="38" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.57986873" vertical-offset="862" max-vertical-offset="2432">
+        <state line="71" column="47" selection-start="2650" selection-end="2650" vertical-scroll-proportion="0.7702407" vertical-offset="432" max-vertical-offset="2768">
           <folding />
         </state>
       </provider>
