@@ -1,5 +1,7 @@
 <?php
 
+namespace Shawmut\VeracoreApi;
+
 class VeracoreSoap
 {
 

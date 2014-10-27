@@ -1,5 +1,7 @@
 <?php
 
+namespace Shawmut\VeracoreApi;
+
 class VeracoreOrder
 {
 
@@ -9,19 +11,19 @@ class VeracoreOrder
 
     public function __construct()
     {
-        $this->order = new stdClass();
-        $this->order->Header = new stdClass();
-        $this->order->Classification = new stdClass();
-        $this->order->Shipping = new stdClass();
-        $this->order->Money = new stdClass();
-        $this->order->Payment = new stdClass();
-        $this->order->OrderVariables = new stdClass();
-        $this->order->OrderedBy = new stdClass();
-        $this->order->ShipTo = new stdClass();
-        $this->order->BillTo = new stdClass();
-        $this->order->Offers = new ArrayObject();
-        $this->order->OrderRecurrenceSchedule = new stdClass();
-        $this->order->OrderBudget = new stdClass();
+        $this->order = new \stdClass();
+        $this->order->Header = new \stdClass();
+        $this->order->Classification = new \stdClass();
+        $this->order->Shipping = new \stdClass();
+        $this->order->Money = new \stdClass();
+        $this->order->Payment = new \stdClass();
+        $this->order->OrderVariables = new \stdClass();
+        $this->order->OrderedBy = new \stdClass();
+        $this->order->ShipTo = new \stdClass();
+        $this->order->BillTo = new \stdClass();
+        $this->order->Offers = new \ArrayObject();
+        $this->order->OrderRecurrenceSchedule = new \stdClass();
+        $this->order->OrderBudget = new \stdClass();
 
         $this->offers = array();
     }
@@ -34,7 +36,7 @@ class VeracoreOrder
 
     protected function validateAddress($address)
     {
-        $addressObject = new stdClass();
+        $addressObject = new \stdClass();
 
         // Required fields
         $addressObject->FirstName = $address['FirstName'];
@@ -93,7 +95,7 @@ class VeracoreOrder
     public function setShipTo($inputAddress = null, $comments = null, $flag = 'Other', $shipToKey = 1)
     {
 
-        $OrderShipTo = new stdClass();
+        $OrderShipTo = new \stdClass();
 
         if($flag == 'OrderedBy'){
             $OrderShipTo->Flag = $flag;
@@ -126,11 +128,11 @@ class VeracoreOrder
     public function addOffer($quantity = 1, $offerId, $shipToKey = 1)
     {
         /*
-        $offerOrdered = new stdClass();
+        $offerOrdered = new \stdClass();
 
-        $offerOrdered->Offer = new stdClass();
-        $offerOrdered->Offer->Header = new stdClass();
-        $offerOrdered->OrderShipTo = new stdClass();
+        $offerOrdered->Offer = new \stdClass();
+        $offerOrdered->Offer->Header = new \stdClass();
+        $offerOrdered->OrderShipTo = new \stdClass();
 
         $offerOrdered->Quantity = $quantity;
         $offerOrdered->OrderShipTo->Key = $shipToKey;
