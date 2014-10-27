@@ -42,9 +42,9 @@ class VeracoreSoap
             ));
 
             // Set header
-            $header = new SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
+            $header = new \SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
             $this->soapClient->__setSoapHeaders($header);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             echo 'We experienced an SoapClient initialization error: '. $e->getMessage();
         }
     }
@@ -55,7 +55,7 @@ class VeracoreSoap
             $response = $this->soapClient->AddOrder(
                 array('order' => $order)
             );
-        } catch(Exception $e){
+        } catch(\Exception $e){
            echo 'We experienced an addOrder error: '. $e->getMessage();
            $response = null;
         }
