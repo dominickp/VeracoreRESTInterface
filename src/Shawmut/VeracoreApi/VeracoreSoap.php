@@ -62,6 +62,19 @@ class VeracoreSoap
         return $response;
     }
 
+    public function getOrderInfo($orderId)
+    {
+        try{
+            $response = $this->soapClient->GetOrderInfo(
+                array('orderId' => $orderId)
+            );
+        } catch(\Exception $e){
+           echo 'We experienced an addOrder error: '. $e->getMessage();
+           $response = null;
+        }
+        return $response;
+    }
+
     public function testSoap()
     {
         return htmlentities($this->soapClient->__getLastRequest());

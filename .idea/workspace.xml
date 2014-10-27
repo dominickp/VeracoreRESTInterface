@@ -25,16 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-48.5" vertical-offset="2338" max-vertical-offset="4400">
-              <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,32 +35,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="352">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.702081" vertical-offset="79" max-vertical-offset="992">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+              <folding>
+                <element signature="e#54#92#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VeracoreOrder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.12" vertical-offset="951" max-vertical-offset="2800">
-              <caret line="94" column="67" selection-start-line="94" selection-start-column="67" selection-end-line="94" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VeracoreSoap.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VeracoreSoap.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreSoap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.08762322" vertical-offset="288" max-vertical-offset="1264">
-              <caret line="13" column="25" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="25" />
+            <state vertical-scroll-proportion="-23.72" vertical-offset="495" max-vertical-offset="1472">
+              <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="example_addorder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/example_addorder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="1056">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
+              <folding>
+                <marker date="1406141502585" expanded="false" signature="1556:1571" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,8 +102,8 @@
       <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.56" vertical-offset="0" max-vertical-offset="240">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state vertical-scroll-proportion="-2.56" vertical-offset="0" max-vertical-offset="272">
+              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -134,10 +128,11 @@
         <option value="$PROJECT_DIR$/web/.htaccess" />
         <option value="$PROJECT_DIR$/web/index.php" />
         <option value="$PROJECT_DIR$/app/bootstrap.php" />
+        <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php" />
+        <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/GetOrderInfo.php" />
+        <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreSoap.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/app.php" />
-        <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php" />
-        <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreSoap.php" />
       </list>
     </option>
   </component>
@@ -370,11 +365,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/example_addorder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.56" vertical-offset="0" max-vertical-offset="240">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="1056">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
+          <folding>
+            <marker date="1406141502585" expanded="false" signature="1556:1571" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -386,27 +383,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.php">
+    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreSoap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="352">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="-23.72" vertical-offset="495" max-vertical-offset="1472">
+          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.12" vertical-offset="951" max-vertical-offset="2800">
-          <caret line="94" column="67" selection-start-line="94" selection-start-column="67" selection-end-line="94" selection-end-column="67" />
+        <state vertical-scroll-proportion="1.1932204" vertical-offset="0" max-vertical-offset="2800">
+          <caret line="66" column="14" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreSoap.php">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08762322" vertical-offset="288" max-vertical-offset="1264">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="25" />
+        <state vertical-scroll-proportion="-2.56" vertical-offset="0" max-vertical-offset="272">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.702081" vertical-offset="79" max-vertical-offset="992">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding>
+            <element signature="e#54#92#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

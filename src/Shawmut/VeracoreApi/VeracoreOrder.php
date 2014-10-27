@@ -72,10 +72,10 @@ class VeracoreOrder
         foreach($orderVariableArray as $fieldName => $value){
             $orderVariable = array();
             $fieldnameArray = array($namespace.'FieldName' => $fieldName);
-            $orderVariable[] = new SoapVar($fieldnameArray, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'VariableField');
-            $orderVariable[] = new SoapVar($value, XSD_STRING, $typename, $namespace, $namespace.'Value');
+            $orderVariable[] = new \SoapVar($fieldnameArray, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'VariableField');
+            $orderVariable[] = new \SoapVar($value, XSD_STRING, $typename, $namespace, $namespace.'Value');
 
-            $orderVariables[] = new SoapVar($orderVariable, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderVariable');
+            $orderVariables[] = new \SoapVar($orderVariable, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderVariable');
         }
 
 
@@ -103,7 +103,7 @@ class VeracoreOrder
             $OrderShipTo->Comments = $comments;
         } else {
 
-            if(empty($address)) throw new Exception('Address may only be blank if Flag is set to "OrderedBy".');
+            if(empty($address)) throw new \Exception('Address may only be blank if Flag is set to "OrderedBy".');
 
             $OrderShipTo = $this->validateAddress($inputAddress);
 
@@ -144,19 +144,19 @@ class VeracoreOrder
         $typename = null;
 
         $offerHeaderId = array();
-        $offerHeaderId[] = new SoapVar($offerId, XSD_STRING, $typename, $namespace, $namespace.'ID');
+        $offerHeaderId[] = new \SoapVar($offerId, XSD_STRING, $typename, $namespace, $namespace.'ID');
 
         $offerHeader = array();
-        $offerHeader[] = new SoapVar($offerHeaderId, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Header');
+        $offerHeader[] = new \SoapVar($offerHeaderId, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Header');
 
         $orderShipToKey = array();
-        $orderShipToKey[] = new SoapVar($shipToKey, XSD_STRING, $typename, $namespace, $namespace.'Key');
+        $orderShipToKey[] = new \SoapVar($shipToKey, XSD_STRING, $typename, $namespace, $namespace.'Key');
 
-        $offer[] = new SoapVar($offerHeader, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Offer');
-        $offer[] = new SoapVar($quantity, XSD_STRING, $typename, $namespace, $namespace.'Quantity');
-        $offer[] = new SoapVar($orderShipToKey, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderShipTo');
+        $offer[] = new \SoapVar($offerHeader, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'Offer');
+        $offer[] = new \SoapVar($quantity, XSD_STRING, $typename, $namespace, $namespace.'Quantity');
+        $offer[] = new \SoapVar($orderShipToKey, SOAP_ENC_OBJECT, $typename, $namespace, $namespace.'OrderShipTo');
 
-        $this->offers[] = new SoapVar($offer, SOAP_ENC_OBJECT, null, 'OfferOrdered');
+        $this->offers[] = new \SoapVar($offer, SOAP_ENC_OBJECT, null, 'OfferOrdered');
     }
 
     public function getOrder()

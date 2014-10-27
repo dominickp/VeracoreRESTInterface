@@ -1,6 +1,8 @@
 {
     "require": {
-        "silex/silex": "~1.2"
+        "silex/silex": "~1.2",
+        "monolog/monolog": ">=1.0.0",
+        "symfony/serializer": ">=2.3,<2.5-dev"
     },
     "autoload": {
         "psr-0": {
