@@ -5,6 +5,7 @@ require_once __DIR__.'/../app/bootstrap.php';
 use Shawmut\VeracoreApi\VeracoreOrder;
 use Shawmut\VeracoreApi\VeracoreSoap;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 use Silex\Provider\SerializerServiceProvider;
 
@@ -39,9 +40,30 @@ function getSoapClient()
     return $veracoreSoap;
 }
 
+$cirriusInfo = json_encode(array(
+    'username' => "cirrius",
+    'password' => "XEche5ta"
+));
+
+// Authorize Request
+function authorizeRequest(Request $request)
+{
+    $authorization = $request->headers->get("Authorization");
+
+    $decoded = base64_decode($authorization);
+
+    json_decode($decoded);
+
+    return $authorization;
+}
 
 // GetOrderInfo
-$app->get('/order/{orderId}', function ($orderId) use ($app) {
+$app->get('/order/{orderId}', function (Request $request, $orderId) use ($app) {
+
+    $authenticated = authorizeRequest($request);
+
+    
+    print_r($authenticated); die;
 
     $veracoreSoap = getSoapClient();
 
