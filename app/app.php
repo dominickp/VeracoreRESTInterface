@@ -7,7 +7,6 @@ use Shawmut\VeracoreApi\VeracoreSoap;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
-use Silex\Provider\SerializerServiceProvider;
 
 #$VeracoreOrder = new VeracoreOrder();
 
