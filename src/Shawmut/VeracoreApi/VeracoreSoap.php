@@ -32,21 +32,17 @@ class VeracoreSoap
         ini_set('default_socket_timeout', 1.5);
 
         // Initiate SoapClient
-        try{
-            $this->soapClient = new \SoapClient($this->wsdl, array(
-                "soap_version" => SOAP_1_1,
-                'trace' => 1, // debugging
-                "connection_timeout"=>1.5,
-                "exceptions" => true,
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
-            ));
+        $this->soapClient = new \SoapClient($this->wsdl, array(
+            "soap_version" => SOAP_1_1,
+            'trace' => 1, // debugging
+            "connection_timeout"=>1.5,
+            "exceptions" => true,
+            "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
+        ));
 
-            // Set header
-            $header = new \SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
-            $this->soapClient->__setSoapHeaders($header);
-        } catch(\Exception $e) {
-            echo 'We experienced an SoapClient initialization error: '. $e->getMessage();
-        }
+        // Set header
+        $header = new \SoapHeader($this->xmlns, 'AuthenticationHeader', $this->authenticationHeader);
+        $this->soapClient->__setSoapHeaders($header);
     }
 
     public function addOrder($order)
@@ -64,14 +60,10 @@ class VeracoreSoap
 
     public function getOrderInfo($orderId)
     {
-        try{
-            $response = $this->soapClient->GetOrderInfo(
-                array('orderId' => $orderId)
-            );
-        } catch(\Exception $e){
-           echo 'We experienced an addOrder error: '. $e->getMessage();
-           $response = null;
-        }
+
+        $response = $this->soapClient->GetOrderInfo(
+            array('orderId' => $orderId)
+        );
         return $response;
     }
 
