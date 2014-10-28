@@ -28,50 +28,77 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 
 
 // Get the SOAP client
-function getSoapClient()
+function getSoapClient($credentials)
 {
     $wsdl = 'https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl';
 
-    $username = 'cirrius';
-    $password = 'XEche5ta';
+    $username = $credentials->username;
+    $password = $credentials->password;
 
     $veracoreSoap = new VeracoreSoap($wsdl, $username, $password);
 
     return $veracoreSoap;
 }
 
-$cirriusInfo = json_encode(array(
-    'username' => "cirrius",
-    'password' => "XEche5ta"
-));
-
 // Authorize Request
-function authorizeRequest(Request $request)
+function getDecodedVeracoreCredentials(Request $request)
 {
     $authorization = $request->headers->get("Authorization");
 
-    $decoded = base64_decode($authorization);
+    $base64Decoded = base64_decode($authorization);
 
-    json_decode($decoded);
+    $jsonDecoded = json_decode($base64Decoded);
 
-    return $authorization;
+    $credentials = $jsonDecoded;
+
+    if(empty($credentials->username)) throw new \Exception("Veracore API username not found in HTTP authorization header.");
+    if(empty($credentials->password)) throw new \Exception("Veracore API password not found in HTTP authorization header.");
+
+    return $credentials;
+}
+
+function getResponseSuccess($result)
+{
+    $response = new stdClass();
+    $response->type = "Success";
+    $response->body = $result;
+
+    $jsonResponse = json_encode($response);
+
+    return $jsonResponse;
+}
+
+function getResponseError($e)
+{
+    $response = new stdClass();
+    $response->type = "Error";
+    $response->body = $e->getMessage();
+
+    $jsonResponse = json_encode($response);
+
+    return $jsonResponse;
 }
 
 // GetOrderInfo
 $app->get('/order/{orderId}', function (Request $request, $orderId) use ($app) {
 
-    $authenticated = authorizeRequest($request);
+    try{
 
-    
-    print_r($authenticated); die;
+        $credentials = getDecodedVeracoreCredentials($request);
 
-    $veracoreSoap = getSoapClient();
+        $veracoreSoap = getSoapClient($credentials);
 
-    $result = $veracoreSoap->getOrderInfo($orderId);
+        $result = $veracoreSoap->getOrderInfo($orderId);
 
-    $jsonResult = json_encode($result);
+        $jsonResponse = getResponseSuccess($result);
 
-    return new Response($jsonResult, 200, array(
+    } catch (Exception $e) {
+
+        $jsonResponse = getResponseError($e);
+
+    }
+
+    return new Response($jsonResponse, 200, array(
         "Content-Type" => "application/json"
     ));
 });
