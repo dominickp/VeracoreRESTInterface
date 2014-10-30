@@ -1,6 +1,6 @@
 <?php
 
-include('VeracoreSoap.php');
+include('Soap.php');
 include('VeracoreOrder.php');
 
 $wsdl = 'https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl';

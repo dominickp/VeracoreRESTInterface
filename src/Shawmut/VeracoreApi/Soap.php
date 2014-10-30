@@ -2,7 +2,7 @@
 
 namespace Shawmut\VeracoreApi;
 
-class VeracoreSoap
+class Soap
 {
 
     protected $wsdl;
@@ -45,17 +45,22 @@ class VeracoreSoap
         $this->soapClient->__setSoapHeaders($header);
     }
 
-    public function addOrder($order)
+    public function addOrderOld($order)
     {
         try{
             $response = $this->soapClient->AddOrder(
                 array('order' => $order)
             );
         } catch(\Exception $e){
-           echo 'We experienced an addOrder error: '. $e->getMessage();
-           $response = null;
+            echo 'We experienced an addOrder error: '. $e->getMessage();
+            $response = null;
         }
         return $response;
+    }
+
+    public function addOrder($order)
+    {
+
     }
 
     public function getOrderInfo($orderId)

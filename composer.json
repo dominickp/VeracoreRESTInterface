@@ -1,7 +1,9 @@
 {
     "require": {
         "silex/silex": "~1.2",
-        "monolog/monolog": ">=1.0.0"
+        "monolog/monolog": ">=1.0.0",
+        "symfony/yaml": "~2.3",
+        "deralex/yaml-config-service-provider": "1.0.x-dev"
     },
     "autoload": {
         "psr-0": {

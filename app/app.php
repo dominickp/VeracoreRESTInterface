@@ -2,23 +2,23 @@
 
 require_once __DIR__.'/../app/bootstrap.php';
 
-use Shawmut\VeracoreApi\VeracoreOrder;
-use Shawmut\VeracoreApi\VeracoreSoap;
+use Shawmut\VeracoreApi\Order;
+use Shawmut\VeracoreApi\Response as VeracoreResponse;
+use Shawmut\VeracoreApi\SoapFactory;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
-#$VeracoreOrder = new VeracoreOrder();
-
+$app->before(function (Request $request) {
+    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($request->getContent(), true);
+        $request->request->replace(is_array($data) ? $data : array());
+    }
+});
 
 $app['debug'] = true;
 
-$app = new Silex\Application();
-
-# Logging
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/log/development.log',
-));
 
 $app->get('/hello/{name}', function ($name) use ($app) {
     return 'Hello '.$app->escape($name);
@@ -26,80 +26,85 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 
 
 
-// Get the SOAP client
-function getSoapClient($credentials)
-{
-    $wsdl = 'https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl';
-
-    $username = $credentials->username;
-    $password = $credentials->password;
-
-    $veracoreSoap = new VeracoreSoap($wsdl, $username, $password);
-
-    return $veracoreSoap;
-}
-
-// Authorize Request
-function getDecodedVeracoreCredentials(Request $request)
-{
-    $authorization = $request->headers->get("Authorization");
-
-    $base64Decoded = base64_decode($authorization);
-
-    $jsonDecoded = json_decode($base64Decoded);
-
-    $credentials = $jsonDecoded;
-
-    if(empty($credentials->username)) throw new \Exception("Veracore API username not found in HTTP authorization header.");
-    if(empty($credentials->password)) throw new \Exception("Veracore API password not found in HTTP authorization header.");
-
-    return $credentials;
-}
-
-function getResponseSuccess($result)
-{
-    $response = new stdClass();
-    $response->type = "Success";
-    $response->body = $result;
-
-    $jsonResponse = json_encode($response);
-
-    return $jsonResponse;
-}
-
-function getResponseError($e)
-{
-    $response = new stdClass();
-    $response->type = "Error";
-    $response->body = $e->getMessage();
-
-    $jsonResponse = json_encode($response);
-
-    return $jsonResponse;
-}
-
 // GetOrderInfo
 $app->get('/order/{orderId}', function (Request $request, $orderId) use ($app) {
 
+    $vr = new VeracoreResponse();
+    $sf = new SoapFactory();
+
     try{
 
-        $credentials = getDecodedVeracoreCredentials($request);
+        $soap = $sf->create($request);
 
-        $veracoreSoap = getSoapClient($credentials);
+        $result = $soap->getOrderInfo($orderId);
 
-        $result = $veracoreSoap->getOrderInfo($orderId);
-
-        $jsonResponse = getResponseSuccess($result);
+        $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
 
-        $jsonResponse = getResponseError($e);
+        $jsonResponse = $vr->getResponseError($e);
 
     }
 
     return new Response($jsonResponse, 200, array(
         "Content-Type" => "application/json"
     ));
+
+});
+
+
+function makeOrderObject()
+{
+    $order = new Order();
+
+    $address = new \stdClass();
+    $address->Key = "1";
+    $address->FirstName = "Gabe";
+    $address->LastName = "Peluso";
+    $address->Address1 = "123 Any St.";
+    $address->City = "Danvers";
+    $address->State = "MA";
+    $address->PostalCode = "01923";
+
+    $order->addOrderShipTo($address);
+
+    /*
+    $jsonOrder = json_encode($address);
+    print_r($jsonOrder); die;
+    */
+
+    return $order;
+
+}
+
+$app->post('/order', function (Request $request) use ($app){
+
+    $vr = new VeracoreResponse();
+    $sf = new SoapFactory();
+
+    $order = makeOrderObject();
+
+
+    print_r($order); die;
+
+    try{
+
+        $soap = $sf->create($request);
+
+        $result = $soap->addOrder($orderId);
+
+        $jsonResponse = $vr->getResponseSuccess($result);
+
+    } catch (Exception $e) {
+
+        $jsonResponse = $vr->getResponseError($e);
+
+    }
+
+    return new Response($jsonResponse, 200, array(
+        "Content-Type" => "application/json"
+    ));
+
 });
 
 return $app;

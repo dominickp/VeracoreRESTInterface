@@ -1,0 +1,2 @@
+veracore_api:
+    wsdl: https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl
