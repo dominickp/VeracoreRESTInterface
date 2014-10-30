@@ -1,14 +1,16 @@
 <?php
 
-include('Soap.php');
-include('VeracoreOrder.php');
+namespace Shawmut\VeracoreApi;
+
+require_once('Soap.php');
+require_once('VeracoreOrder.php');
 
 $wsdl = 'https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl';
 
 $username = 'cambridge';
 $password = 'cot!32';
 
-$veracore = new VeracoreSoap($wsdl, $username, $password);
+$veracore = new Soap($wsdl, $username, $password);
 
 // Instance of an Order to pass to the addOrder method
 $order = new VeracoreOrder();

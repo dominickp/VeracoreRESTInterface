@@ -66,7 +66,24 @@ function makeOrderObject()
     $address->State = "MA";
     $address->PostalCode = "01923";
 
-    $order->addOrderShipTo($address);
+    $address2 = new \stdClass();
+    $address2->Key = "2";
+    $address2->FirstName = "Gabe";
+    $address2->LastName = "Peluso";
+    $address2->Address1 = "123 Any St.";
+    $address2->City = "Danvers";
+    $address2->State = "MA";
+    $address2->PostalCode = "01923";
+
+    $key = $order->addOrderShipTo($address);
+    $key2 = $order->addOrderShipTo($address2);
+
+    $offer1 = new \stdClass();
+    $offer1->Quantity = 4;
+    $offer1->OfferId = "TEST";
+    $offer1->ShipToKey = "1";
+
+    $offerid = $order->addOffer($offer1);
 
     /*
     $jsonOrder = json_encode($address);
@@ -85,17 +102,27 @@ $app->post('/order', function (Request $request) use ($app){
     $order = makeOrderObject();
 
 
-    print_r($order); die;
+    #print_r($order); die;
+
+
 
     try{
 
         $soap = $sf->create($request);
 
-        $result = $soap->addOrder($orderId);
+        $result = $soap->addOrder($order->getOrder());
+
+        $lastRequest = $soap->testSoap();
+
+        print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
+
+        $lastRequest = $soap->testSoap();
+
+        print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseError($e);
 

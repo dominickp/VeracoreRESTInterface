@@ -35,6 +35,7 @@ class Soap
         $this->soapClient = new \SoapClient($this->wsdl, array(
             "soap_version" => SOAP_1_1,
             'trace' => 1, // debugging
+            "exceptions"=>0, // debugging, should remove
             "connection_timeout"=>1.5,
             "exceptions" => true,
             "features" => SOAP_SINGLE_ELEMENT_ARRAYS + SOAP_USE_XSI_ARRAY_TYPE,
@@ -45,22 +46,13 @@ class Soap
         $this->soapClient->__setSoapHeaders($header);
     }
 
-    public function addOrderOld($order)
-    {
-        try{
-            $response = $this->soapClient->AddOrder(
-                array('order' => $order)
-            );
-        } catch(\Exception $e){
-            echo 'We experienced an addOrder error: '. $e->getMessage();
-            $response = null;
-        }
-        return $response;
-    }
-
     public function addOrder($order)
     {
+        $response = $this->soapClient->AddOrder(
+            array('order' => $order)
+        );
 
+        return $response;
     }
 
     public function getOrderInfo($orderId)
@@ -74,7 +66,7 @@ class Soap
 
     public function testSoap()
     {
-        return htmlentities($this->soapClient->__getLastRequest());
+        return $this->soapClient->__getLastRequest();
     }
 
     public function getWsdl()
