@@ -33,6 +33,23 @@ class Order
         return true;
     }
 
+    protected function addObjectNamespace($object, $append = true)
+    {
+        // Convert a standard object to ArrayObject built of SoapVars (to set namespace)
+        $ArrayObject = new \ArrayObject();
+        foreach($object as $parameter => $value)
+        {
+            if($append){
+                $ArrayObject->append(new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace));
+            } else {
+                $ArrayObject->$parameter = new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace);
+            }
+
+        }
+
+        return $ArrayObject;
+    }
+
     public function addOrderShipTo($a)
     {
 
@@ -53,11 +70,11 @@ class Order
         $this->validateProperty($a, 'Phone', false);
         $this->validateProperty($a, 'Email', false);
 
-        // Note, this is a method which can be used in simple and complex responses
+        // Convert a standard object to ArrayObject built of SoapVars (to set namespace)
+        $aoAddress = $this->addObjectNamespace($a, true);
 
-
-        $this->ShipTo->append(new \SoapVar($a, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderShipTo ', $this->namespace));
-
+        #$this->ShipTo->append(new \SoapVar($a, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderShipTo ', $this->namespace));
+        $this->ShipTo->append(new \SoapVar($aoAddress, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderShipTo ', $this->namespace));
 
         return true;
     }
@@ -74,20 +91,34 @@ class Order
         $this->validateProperty($o, 'Quantity');
         $this->validateProperty($o, 'ShipToKey');
 
-        $offerOrdered = new \stdClass();
+        // Convert a standard object to ArrayObject built of SoapVars (to set namespace)
+        $o = $this->addObjectNamespace($o, false);
+        
+        // NOT ADDING NAMESPACE TO RECUSRIVE STDCLASS
 
-        $offerOrdered->Offer = new \stdClass();
-        $offerOrdered->Offer->Header = new \stdClass();
 
-        $offerOrdered->Offer->Header->ID = $o->OfferId;
+        // start here
+        $offerHeaderId = array();
+        $offerHeaderId[] = new \SoapVar($o->OfferId, XSD_STRING, null, $this->namespace, 'ID');
 
-        $offerOrdered->Quantity = $o->Quantity;
+        $offerHeader = array();
+        $offerHeader[] = new \SoapVar($offerHeaderId, SOAP_ENC_OBJECT, null, $this->namespace, 'Header');
 
-        $offerOrdered->OrderShipTo = new \stdClass();
-        $offerOrdered->OrderShipTo->Key = $o->ShipToKey;
+        $orderShipToKey = array();
+        $orderShipToKey[] = new \SoapVar($o->ShipToKey, XSD_STRING, null, $this->namespace, 'Key');
+
+        #$offer = array();
+        $offer = new \ArrayObject();
+        $offer->append(new \SoapVar($offerHeader, SOAP_ENC_OBJECT, null, $this->namespace, 'Offer'));
+        $offer->append(new \SoapVar($o->Quantity, XSD_STRING, null, $this->namespace, 'Quantity'));
+        $offer->append(new \SoapVar($o->ShipToKey, SOAP_ENC_OBJECT, null, $this->namespace, 'OrderShipTo'));
+
+
 
         // Add
-        $this->Offers[] = new \SoapVar($offerOrdered, SOAP_ENC_OBJECT, null, 'OfferOrdered');
+        $this->Offers->append(new \SoapVar($offer, SOAP_ENC_OBJECT, null, $this->namespace, 'OfferOrdered', $this->namespace));
+
+
 
         return $o->OfferId;
 
@@ -97,7 +128,8 @@ class Order
     {
         $order = new \stdClass();
         $order->ShipTo = new \SoapVar($this->ShipTo, SOAP_ENC_OBJECT, NULL, $this->namespace, 'ShipTo ', $this->namespace);
-        $order->Offers = $this->Offers;
+        $order->Offers = new \SoapVar($this->Offers, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Offers ', $this->namespace);
+        #$order->Offers = $this->Offers;
 
         return $order;
     }
