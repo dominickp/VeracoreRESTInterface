@@ -90,10 +90,9 @@ function makeOrderObject()
     $header->PONumber = "MyPO";
     $order->setHeader($header);
 
-    /*
-    $jsonOrder = json_encode($address);
-    print_r($jsonOrder); die;
-    */
+
+    print_r(json_encode($header)); die;
+
 
     return $order;
 

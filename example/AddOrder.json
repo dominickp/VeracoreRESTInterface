@@ -1,0 +1,26 @@
+{
+    "Order":{
+        "Header":{
+            "Comments":"My order comments",
+            "PONumber":"MyPO"
+        },
+        "ShipTo":{
+            "OrderShipTo":{
+                "Key":"1",
+                "FirstName":"Gabe",
+                "LastName":"Peluso",
+                "Address1":"123 Any St.",
+                "City":"Danvers",
+                "State":"MA",
+                "PostalCode":"01923"
+            }
+        },
+        "Offers":{
+            "OfferOrdered":{
+                "Quantity":2,
+                "OfferId":"Golf_Ball",
+                "ShipToKey":"1"
+            }
+        }
+    }
+}
