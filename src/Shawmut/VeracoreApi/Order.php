@@ -93,8 +93,8 @@ class Order
 
         // Convert a standard object to ArrayObject built of SoapVars (to set namespace)
         $o = $this->addObjectNamespace($o, false);
-        
-        // NOT ADDING NAMESPACE TO RECUSRIVE STDCLASS
+
+        // NOT ADDING NAMESPACE TO RECURSIVE STDCLASS
 
 
         // start here
@@ -102,14 +102,14 @@ class Order
         $offerHeaderId[] = new \SoapVar($o->OfferId, XSD_STRING, null, $this->namespace, 'ID');
 
         $offerHeader = array();
-        $offerHeader[] = new \SoapVar($offerHeaderId, SOAP_ENC_OBJECT, null, $this->namespace, 'Header');
+        $offerHeader[] = new \SoapVar($offerHeaderId, SOAP_ENC_OBJECT, null, $this->namespace, 'Header', $this->namespace);
 
         $orderShipToKey = array();
         $orderShipToKey[] = new \SoapVar($o->ShipToKey, XSD_STRING, null, $this->namespace, 'Key');
 
         #$offer = array();
         $offer = new \ArrayObject();
-        $offer->append(new \SoapVar($offerHeader, SOAP_ENC_OBJECT, null, $this->namespace, 'Offer'));
+        $offer->append(new \SoapVar($offerHeader, SOAP_ENC_OBJECT, null, $this->namespace, 'Offer', $this->namespace ));
         $offer->append(new \SoapVar($o->Quantity, XSD_STRING, null, $this->namespace, 'Quantity'));
         $offer->append(new \SoapVar($o->ShipToKey, SOAP_ENC_OBJECT, null, $this->namespace, 'OrderShipTo'));
 
