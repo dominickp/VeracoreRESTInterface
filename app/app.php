@@ -91,11 +91,38 @@ function makeOrderObject()
     $order->setHeader($header);
 
 
-    print_r(json_encode($header)); die;
+    #print_r(json_encode($header)); die;
 
 
     return $order;
 
+}
+
+function makeOrderFromExample()
+{
+    $addOrderJson = file_get_contents(__DIR__.'/../example/AddOrder.json');
+    $simpleOrder = json_decode($addOrderJson)->Order;
+
+    $order = new Order();
+
+    // Set the header
+    if(!empty($simpleOrder->Header)) $order->setHeader($simpleOrder->Header);
+
+    // Add offers
+    foreach($simpleOrder->Offers as $o)
+    {
+        $order->addOffer($o);
+    }
+
+    // Add Ship To's
+    foreach($simpleOrder->ShipTo as $s)
+    {
+        $order->addOrderShipTo($s);
+    }
+
+    #print_r($simpleOrder); die;
+
+    return $order;
 }
 
 $app->post('/order', function (Request $request) use ($app){
@@ -103,7 +130,8 @@ $app->post('/order', function (Request $request) use ($app){
     $vr = new VeracoreResponse();
     $sf = new SoapFactory();
 
-    $order = makeOrderObject();
+    #$order = makeOrderObject();
+    $order = makeOrderFromExample();
 
 
     #print_r($order); die;
