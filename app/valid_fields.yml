@@ -1,0 +1,25 @@
+AddOrder:
+    Header:
+        ReferenceNumber: optional
+        PONumber: optional
+        Comments: optional
+    ShipTo:
+        OrderShipTo:
+            Key: required
+            FirstName: required
+            LastName: required
+            Address1: required
+            City: required
+            State: required
+            PostalCode: required
+            Company: optional
+            Address2: optional
+            Address3: optional
+            Country: optional
+            Phone: optional
+            Email: optional
+    Offers:
+        OfferOrdered:
+            OfferId: required
+            Quantity: required
+            ShipToKey: required

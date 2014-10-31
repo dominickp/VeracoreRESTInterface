@@ -27,8 +27,8 @@
             <file leaf-file-name="VeracoreOrder.php" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.702081" vertical-offset="1887" max-vertical-offset="2800">
-                    <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+                  <state vertical-scroll-proportion="0.036144577" vertical-offset="1887" max-vertical-offset="2800">
+                    <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
                     <folding />
                   </state>
                 </provider>
@@ -48,8 +48,8 @@
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.88" vertical-offset="751" max-vertical-offset="2272">
-              <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
+            <state vertical-scroll-proportion="-18.6" vertical-offset="1247" max-vertical-offset="2368">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding>
                 <element signature="e#54#84#0#PHP" expanded="true" />
               </folding>
@@ -73,8 +73,22 @@
       <file leaf-file-name="Order.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56078863" vertical-offset="1152" max-vertical-offset="2272">
-              <caret line="104" column="121" selection-start-line="104" selection-start-column="121" selection-end-line="104" selection-end-column="121" />
+            <state vertical-scroll-proportion="0.78970426" vertical-offset="1615" max-vertical-offset="2528">
+              <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+              <folding>
+                <element signature="e#39#73#0#PHP" expanded="true" />
+                <element signature="e#545#882#0#PHP" expanded="false" />
+                <element signature="e#888#1287#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="valid_fields.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/valid_fields.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -93,8 +107,8 @@
       <file leaf-file-name="Soap.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Soap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.08" vertical-offset="336" max-vertical-offset="1296">
-              <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+            <state vertical-scroll-proportion="-28.8" vertical-offset="0" max-vertical-offset="1296">
+              <caret line="45" column="43" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -174,6 +188,7 @@
         <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/example_addorder.php" />
         <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/Soap.php" />
         <option value="$PROJECT_DIR$/app/app.php" />
+        <option value="$PROJECT_DIR$/app/valid_fields.yml" />
         <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php" />
       </list>
     </option>
@@ -293,6 +308,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistory" value="" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/wamp/www/VeracoreApi/src/Shawmut/VeracoreApi/Order.php" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -375,7 +391,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -492,37 +508,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="288">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.32" vertical-offset="0" max-vertical-offset="304">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/settings.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="112">
-          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddOrder.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="288">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -547,35 +536,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Soap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.08" vertical-offset="336" max-vertical-offset="1296">
-          <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+        <state vertical-scroll-proportion="-28.8" vertical-offset="0" max-vertical-offset="1296">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="288">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/settings.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="112">
+          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.036144577" vertical-offset="1887" max-vertical-offset="2800">
+          <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.88" vertical-offset="751" max-vertical-offset="2272">
-          <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
+        <state vertical-scroll-proportion="-18.6" vertical-offset="1247" max-vertical-offset="2368">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
             <element signature="e#54#84#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/VeracoreOrder.php">
+    <entry file="file://$PROJECT_DIR$/AddOrder.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.702081" vertical-offset="1887" max-vertical-offset="2800">
-          <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+        <state vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="288">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/valid_fields.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56078863" vertical-offset="1152" max-vertical-offset="2272">
-          <caret line="104" column="121" selection-start-line="104" selection-start-column="121" selection-end-line="104" selection-end-column="121" />
-          <folding />
+        <state vertical-scroll-proportion="0.78970426" vertical-offset="1615" max-vertical-offset="2528">
+          <caret line="167" column="5" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
+          <folding>
+            <element signature="e#39#73#0#PHP" expanded="true" />
+            <element signature="e#545#882#0#PHP" expanded="false" />
+            <element signature="e#888#1287#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

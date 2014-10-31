@@ -85,6 +85,11 @@ function makeOrderObject()
 
     $offerid = $order->addOffer($offer1);
 
+    $header = new\stdClass();
+    $header->Comments = "My order comments";
+    $header->PONumber = "MyPO";
+    $order->setHeader($header);
+
     /*
     $jsonOrder = json_encode($address);
     print_r($jsonOrder); die;
@@ -119,6 +124,7 @@ $app->post('/order', function (Request $request) use ($app){
         $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
+
 
         $lastRequest = $soap->testSoap();
 
