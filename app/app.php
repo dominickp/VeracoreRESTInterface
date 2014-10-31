@@ -133,35 +133,22 @@ $app->post('/order', function (Request $request) use ($app){
     $of = new OrderFactory($request->getContent());
     $order = $of->getOrder();
 
-    #$order = makeOrderObject();
-    #$order = makeOrderFromExample();
-
-
-    #print_r($order); die;
-
-
-
     try{
 
         $soap = $sf->create($request);
 
         $result = $soap->addOrder($order->getOrder());
 
-        $lastRequest = $soap->testSoap();
-
+        #$lastRequest = $soap->testSoap();
         #print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
 
-
-        $lastRequest = $soap->testSoap();
-
-
+        #$lastRequest = $soap->testSoap();
 
         $jsonResponse = $vr->getResponseError($e);
-        #print_r($order->getOrder()); die;
 
     }
 
