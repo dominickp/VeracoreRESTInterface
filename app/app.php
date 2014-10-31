@@ -3,6 +3,7 @@
 require_once __DIR__.'/../app/bootstrap.php';
 
 use Shawmut\VeracoreApi\Order;
+use Shawmut\VeracoreApi\OrderFactory;
 use Shawmut\VeracoreApi\Response as VeracoreResponse;
 use Shawmut\VeracoreApi\SoapFactory;
 use Symfony\Component\HttpFoundation\Response;
@@ -129,9 +130,11 @@ $app->post('/order', function (Request $request) use ($app){
 
     $vr = new VeracoreResponse();
     $sf = new SoapFactory();
+    $of = new OrderFactory($request->getContent());
+    $order = $of->getOrder();
 
     #$order = makeOrderObject();
-    $order = makeOrderFromExample();
+    #$order = makeOrderFromExample();
 
 
     #print_r($order); die;
@@ -144,7 +147,7 @@ $app->post('/order', function (Request $request) use ($app){
 
         $result = $soap->addOrder($order->getOrder());
 
-        #$lastRequest = $soap->testSoap();
+        $lastRequest = $soap->testSoap();
 
         #print_r($lastRequest); die;
 
@@ -158,7 +161,7 @@ $app->post('/order', function (Request $request) use ($app){
 
 
         $jsonResponse = $vr->getResponseError($e);
-        #print_r($lastRequest); die;
+        #print_r($order->getOrder()); die;
 
     }
 
