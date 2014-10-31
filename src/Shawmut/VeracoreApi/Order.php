@@ -20,8 +20,6 @@ class Order
     {
         $this->ShipTo = new \ArrayObject();
         $this->Offers = new \ArrayObject();
-        #$this->Header = new \stdClass();
-        #$this->ShipTo = new \stdClass();
         #$this->namespace = 'ns1:';
         $this->namespace = 'http://sma-promail/';
     }
@@ -144,7 +142,7 @@ class Order
         $offer = new \ArrayObject();
         $offer->append(new \SoapVar($offerHeader, SOAP_ENC_OBJECT, null, $this->namespace, 'Offer', $this->namespace ));
         $offer->append(new \SoapVar($o->Quantity, XSD_STRING, null, $this->namespace, 'Quantity'));
-        $offer->append(new \SoapVar($o->ShipToKey, SOAP_ENC_OBJECT, null, $this->namespace, 'OrderShipTo'));
+        $offer->append(new \SoapVar($orderShipToKey, SOAP_ENC_OBJECT, null, $this->namespace, 'OrderShipTo', $this->namespace));
 
         // Add
         $this->Offers->append(new \SoapVar($offer, SOAP_ENC_OBJECT, null, $this->namespace, 'OfferOrdered', $this->namespace));

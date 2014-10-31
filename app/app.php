@@ -76,11 +76,11 @@ function makeOrderObject()
     $address2->PostalCode = "01923";
 
     $key = $order->addOrderShipTo($address);
-    $key2 = $order->addOrderShipTo($address2);
+    #$key2 = $order->addOrderShipTo($address2);
 
     $offer1 = new \stdClass();
     $offer1->Quantity = 4;
-    $offer1->OfferId = "TEST";
+    $offer1->OfferId = "Golf_Ball";
     $offer1->ShipToKey = "1";
 
     $offerid = $order->addOffer($offer1);
@@ -117,9 +117,9 @@ $app->post('/order', function (Request $request) use ($app){
 
         $result = $soap->addOrder($order->getOrder());
 
-        $lastRequest = $soap->testSoap();
+        #$lastRequest = $soap->testSoap();
 
-        print_r($lastRequest); die;
+        #print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 
@@ -128,9 +128,10 @@ $app->post('/order', function (Request $request) use ($app){
 
         $lastRequest = $soap->testSoap();
 
-        print_r($lastRequest); die;
+
 
         $jsonResponse = $vr->getResponseError($e);
+        #print_r($lastRequest); die;
 
     }
 
