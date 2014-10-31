@@ -11,14 +11,9 @@ class OrderFactory
 
     function __construct($json_request)
     {
-        #$addOrderJson = file_get_contents(__DIR__.'/../example/AddOrder.json');
         $simpleOrder = json_decode($json_request)->Order;
 
-        #print_r($simpleOrder); die;
-
         $this->simpleOrder = $simpleOrder;
-
-
     }
 
     public function getOrder()

@@ -138,7 +138,6 @@ class Order
         $orderShipToKey = array();
         $orderShipToKey[] = new \SoapVar($o->ShipToKey, XSD_STRING, null, $this->namespace, 'Key');
 
-        #$offer = array();
         $offer = new \ArrayObject();
         $offer->append(new \SoapVar($offerHeader, SOAP_ENC_OBJECT, null, $this->namespace, 'Offer', $this->namespace ));
         $offer->append(new \SoapVar($o->Quantity, XSD_STRING, null, $this->namespace, 'Quantity'));
@@ -157,7 +156,6 @@ class Order
         $order->ShipTo = new \SoapVar($this->ShipTo, SOAP_ENC_OBJECT, NULL, $this->namespace, 'ShipTo', $this->namespace);
         $order->Offers = new \SoapVar($this->Offers, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Offers', $this->namespace);
         $order->Header = new \SoapVar($this->Header, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Header', $this->namespace);
-        #$order->Offers = $this->Offers;
 
         return $order;
     }
