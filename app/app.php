@@ -3,6 +3,7 @@
 require_once __DIR__.'/../app/bootstrap.php';
 
 use Shawmut\VeracoreApi\Order;
+use Shawmut\VeracoreApi\Offers;
 use Shawmut\VeracoreApi\OrderFactory;
 use Shawmut\VeracoreApi\Response as VeracoreResponse;
 use Shawmut\VeracoreApi\SoapFactory;
@@ -140,15 +141,15 @@ $app->post('/order', function (Request $request) use ($app){
 
         $result = $soap->addOrder($order->getOrder());
 
-        $lastRequest = $soap->testSoap();
-        print_r($lastRequest); die;
+        #$lastRequest = $soap->testSoap();
+        #print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
 
-        $lastRequest = $soap->testSoap();
-        print_r($lastRequest); die;
+        #$lastRequest = $soap->testSoap();
+        #print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseError($e);
 
@@ -160,7 +161,39 @@ $app->post('/order', function (Request $request) use ($app){
 
 });
 
-// GetOffers
+// GetOffer
+$app->get('/offer/{searchText}', function (Request $request, $searchText) use ($app) {
 
+    // Grab the get parameters to specify where it should search through
+    $searchId = filter_var($request->query->get('id'), FILTER_VALIDATE_BOOLEAN);
+    $searchName = filter_var($request->query->get('name'), FILTER_VALIDATE_BOOLEAN);
+
+    // In case someone wants to be lazy
+    if($searchId == false && $searchName == false){
+        $searchId = true;
+    }
+    
+    $vr = new VeracoreResponse();
+    $sf = new SoapFactory();
+    $of = new Offers($searchId, $searchName);
+
+    $of->setSearchString($searchText);
+    $getOffer = $of->getGetOffer();
+
+    try{
+
+        $soap = $sf->create($request);
+        $result = $soap->getOffers($getOffer);
+        $jsonResponse = $vr->getResponseSuccess($result);
+
+    } catch (Exception $e) {
+        $jsonResponse = $vr->getResponseError($e);
+    }
+
+    return new Response($jsonResponse, 200, array(
+        "Content-Type" => "application/json"
+    ));
+
+});
 
 return $app;

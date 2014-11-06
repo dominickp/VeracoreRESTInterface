@@ -51,7 +51,7 @@ $CustomCategory[] = new \SoapVar("Brochures", XSD_STRING, NULL, $namespace, 'Des
 $getOffers = new \stdClass();
 $getOffers->searchID = new \SoapVar(true, XSD_BOOLEAN, NULL, $namespace, 'searchID', $namespace);
 $getOffers->searchDescription = new \SoapVar(true, XSD_BOOLEAN, NULL, $namespace, 'searchDescription', $namespace);
-$getOffers->searchString = new \SoapVar('FSQ_BRO_ASP_INDX', XSD_STRING, NULL, $namespace, 'searchString', $namespace);
+$getOffers->searchString = new \SoapVar('%', XSD_STRING, NULL, $namespace, 'searchString', $namespace);
 $getOffers->priceClassDescription = new \SoapVar(null, XSD_STRING, NULL, $namespace, 'priceClassDescription', $namespace);
 $getOffers->mailerUID = new \SoapVar(null, XSD_STRING, NULL, $namespace, 'mailerUID', $namespace);
 $getOffers->categoryGroupDescription = new \SoapVar('', XSD_STRING, NULL, $namespace, 'categoryGroupDescription', $namespace);
@@ -70,9 +70,9 @@ try{
 
     // Get response as HTML/XML
     $soap = $veracore->testSoap();
-    header('Content-type: application/xml');
+    header('Content-type: text/plain');
     #echo '<hr><div style="max-width:600px">';
-    print_r($soap);
+    print_r($getOffersResponse);
 
 } catch (\Exception $e){
     echo $e->getMessage();die;
