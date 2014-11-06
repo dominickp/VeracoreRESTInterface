@@ -22,4 +22,5 @@ Route: ```GET /offer/{search_tring}?id=true&name=false```
 Returns offer information for any offers within a category access group. You can further specify a search term but that is optional. It also has the same GET parameters from GetOffer.
 
 Route: ```GET /offers/{category_access_group}/{search_tring}?id=true&name=false```
+
 Example: ```GET /offers/salesforce```
