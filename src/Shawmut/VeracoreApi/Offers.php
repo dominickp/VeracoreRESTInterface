@@ -39,6 +39,11 @@ class Offers
         $this->getOffers->searchString = new \SoapVar($searchText, XSD_STRING, NULL, $this->namespace, 'searchString', $this->namespace);
     }
 
+    public function setCategoryAccessGroup($categoryAccessGroup)
+    {
+        $this->getOffers->categoryGroupDescription = new \SoapVar($categoryAccessGroup, XSD_STRING, NULL, $this->namespace, 'categoryGroupDescription', $this->namespace);
+    }
+
     public function getGetOffer()
     {
         return $this->getOffers;

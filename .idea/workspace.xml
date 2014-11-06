@@ -50,8 +50,8 @@
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.96" vertical-offset="1247" max-vertical-offset="2176">
-              <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+            <state vertical-scroll-proportion="-16.04" vertical-offset="1887" max-vertical-offset="2800">
+              <caret line="211" column="5" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
               <folding>
                 <element signature="e#54#84#0#PHP" expanded="true" />
                 <element signature="n#makeOrderObject#0;n#!!top" expanded="false" />
@@ -64,8 +64,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29955947" vertical-offset="0" max-vertical-offset="908">
-              <caret line="16" column="356" selection-start-line="16" selection-start-column="356" selection-end-line="16" selection-end-column="356" />
+            <state vertical-scroll-proportion="0.44052863" vertical-offset="0" max-vertical-offset="908">
+              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -121,8 +121,8 @@
       <file leaf-file-name="Offers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Offers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.52" vertical-offset="0" max-vertical-offset="848">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state vertical-scroll-proportion="-27.52" vertical-offset="0" max-vertical-offset="928">
+              <caret line="43" column="149" selection-start-line="43" selection-start-column="149" selection-end-line="43" selection-end-column="149" />
               <folding>
                 <element signature="e#39#73#0#PHP" expanded="true" />
               </folding>
@@ -788,20 +788,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/example_getoffers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6035565" vertical-offset="287" max-vertical-offset="1584">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="63" selection-end-column="55" />
-          <folding>
-            <marker date="1415303398140" expanded="false" signature="3313:3328" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Offers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.52" vertical-offset="0" max-vertical-offset="848">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="-27.52" vertical-offset="0" max-vertical-offset="928">
+          <caret line="43" column="149" selection-start-line="43" selection-start-column="149" selection-end-line="43" selection-end-column="149" />
           <folding>
             <element signature="e#39#73#0#PHP" expanded="true" />
           </folding>
@@ -816,10 +806,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/example_getoffers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6035565" vertical-offset="287" max-vertical-offset="1584">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="63" selection-end-column="55" />
+          <folding>
+            <marker date="1415303398140" expanded="false" signature="3313:3328" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.96" vertical-offset="1247" max-vertical-offset="2176">
-          <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.04" vertical-offset="1887" max-vertical-offset="2800">
+          <caret line="211" column="5" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
           <folding>
             <element signature="e#54#84#0#PHP" expanded="true" />
             <element signature="n#makeOrderObject#0;n#!!top" expanded="false" />
@@ -830,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29955947" vertical-offset="0" max-vertical-offset="908">
-          <caret line="16" column="356" selection-start-line="16" selection-start-column="356" selection-end-line="16" selection-end-column="356" />
+        <state vertical-scroll-proportion="0.44052863" vertical-offset="0" max-vertical-offset="908">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
           <folding />
         </state>
       </provider>

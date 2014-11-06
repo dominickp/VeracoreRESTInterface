@@ -196,4 +196,43 @@ $app->get('/offer/{searchText}', function (Request $request, $searchText) use ($
 
 });
 
+// GetOffers
+$app->get('/offers/{category_access_group}/{search_text}', function (Request $request, $category_access_group, $search_text) use ($app) {
+
+    // Grab the get parameters to specify where it should search through
+    $searchId = filter_var($request->query->get('id'), FILTER_VALIDATE_BOOLEAN);
+    $searchName = filter_var($request->query->get('name'), FILTER_VALIDATE_BOOLEAN);
+
+    // In case someone wants to be lazy
+    if($searchId == false && $searchName == false){
+        $searchId = true;
+    }
+
+    // If no search text, set wildcard
+    #if(empty($search_text)) $search_text = '%';
+
+    $vr = new VeracoreResponse();
+    $sf = new SoapFactory();
+    $of = new Offers($searchId, $searchName);
+
+    $of->setSearchString($search_text);
+    $of->setCategoryAccessGroup($category_access_group);
+    $getOffer = $of->getGetOffer();
+
+    try{
+
+        $soap = $sf->create($request);
+        $result = $soap->getOffers($getOffer);
+        $jsonResponse = $vr->getResponseSuccess($result);
+
+    } catch (Exception $e) {
+        $jsonResponse = $vr->getResponseError($e);
+    }
+
+    return new Response($jsonResponse, 200, array(
+        "Content-Type" => "application/json"
+    ));
+
+})->value('search_text', '%');
+
 return $app;
