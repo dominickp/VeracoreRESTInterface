@@ -64,6 +64,14 @@ class Soap
         return $response;
     }
 
+    public function getOffers($getOffers)
+    {
+
+        $response = $this->soapClient->GetOffers($getOffers);
+
+        return $response;
+    }
+
     public function testSoap()
     {
         return $this->soapClient->__getLastRequest();

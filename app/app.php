@@ -126,6 +126,7 @@ function makeOrderFromExample()
     return $order;
 }
 
+// AddOrder
 $app->post('/order', function (Request $request) use ($app){
 
     $vr = new VeracoreResponse();
@@ -139,14 +140,15 @@ $app->post('/order', function (Request $request) use ($app){
 
         $result = $soap->addOrder($order->getOrder());
 
-        #$lastRequest = $soap->testSoap();
-        #print_r($lastRequest); die;
+        $lastRequest = $soap->testSoap();
+        print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 
     } catch (Exception $e) {
 
-        #$lastRequest = $soap->testSoap();
+        $lastRequest = $soap->testSoap();
+        print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseError($e);
 
@@ -157,5 +159,8 @@ $app->post('/order', function (Request $request) use ($app){
     ));
 
 });
+
+// GetOffers
+
 
 return $app;
