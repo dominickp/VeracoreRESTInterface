@@ -172,7 +172,7 @@ $app->get('/offer/{searchText}', function (Request $request, $searchText) use ($
     if($searchId == false && $searchName == false){
         $searchId = true;
     }
-    
+
     $vr = new VeracoreResponse();
     $sf = new SoapFactory();
     $of = new Offers($searchId, $searchName);
