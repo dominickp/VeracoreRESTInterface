@@ -1,2 +1,3 @@
 veracore_api:
     wsdl: https://orders.shawmutprinting.com/pmomsws/order.asmx?wsdl
+    base_path: https://orders.shawmutprinting.com/
