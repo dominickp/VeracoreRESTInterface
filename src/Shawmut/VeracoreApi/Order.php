@@ -14,6 +14,8 @@ class Order
 
     protected $Offers;
 
+    protected $OrderedBy;
+
     protected $namespace;
 
     function __construct()
@@ -52,6 +54,9 @@ class Order
 
     protected function validateFields($object, $fieldset, $append = true)
     {
+
+        if(!is_object($object)) throw new \Exception("Object used in validateFields() is not an object: ".var_dump($object));
+
         // Get all valid fields from YML
         $allFields = $this->getValidFields();
 
@@ -118,6 +123,17 @@ class Order
         return true;
     }
 
+    public function setOrderedBy($o)
+    {
+
+        $aoAddress = $this->validateFields($o, array("AddOrder", "OrderedBy"), true);
+
+        #$this->OrderedBy = new \SoapVar($aoAddress, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderedBy ', $this->namespace);
+        $this->OrderedBy = $aoAddress;
+
+        return true;
+    }
+
     public function getShipTo()
     {
         return $this->ShipTo;
@@ -156,6 +172,7 @@ class Order
         $order->ShipTo = new \SoapVar($this->ShipTo, SOAP_ENC_OBJECT, NULL, $this->namespace, 'ShipTo', $this->namespace);
         $order->Offers = new \SoapVar($this->Offers, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Offers', $this->namespace);
         $order->Header = new \SoapVar($this->Header, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Header', $this->namespace);
+        $order->OrderedBy = new \SoapVar($this->OrderedBy, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderedBy', $this->namespace);
 
         return $order;
     }

@@ -33,6 +33,12 @@ class OrderFactory
             $this->order->addOrderShipTo($s);
         }
 
+        // Add OrderBy
+        if(isset($this->simpleOrder->OrderedBy)){
+            $this->order->setOrderedBy($this->simpleOrder->OrderedBy);
+        }
+
+
         return $this->order;
     }
 

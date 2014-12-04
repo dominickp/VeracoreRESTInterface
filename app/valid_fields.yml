@@ -23,3 +23,24 @@ AddOrder:
             OfferId: required
             Quantity: required
             ShipToKey: required
+    OrderedBy:
+        FirstName: required
+        LastName: required
+        Address1: required
+        City: required
+        State: required
+        PostalCode: required
+        CompanyName: optional
+        Address2: optional
+        Address3: optional
+        Country: optional
+        Phone: optional
+        Email: optional
+        Commercial: optional
+    Classification:
+        CampaignID: optional
+        Source:
+            Description: optional
+        CustomerProject:
+            ID: optional
+
