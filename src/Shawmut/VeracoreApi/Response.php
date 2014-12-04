@@ -40,7 +40,7 @@ class Response
     {
 
         // Send out to fix links if GetOffersResult
-        if($result->GetOffersResult) $result = $this->setAbsoluteLinks($result);
+        if(isset($result->GetOffersResult)) $result = $this->setAbsoluteLinks($result);
 
         // Otherwise return the result as is
         $response = new \stdClass();
