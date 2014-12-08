@@ -16,6 +16,8 @@ class Order
 
     protected $OrderedBy;
 
+    protected $Classification;
+
     protected $namespace;
 
     function __construct()
@@ -60,6 +62,8 @@ class Order
         // Get all valid fields from YML
         $allFields = $this->getValidFields();
 
+        #print_r($allFields); die;
+
         // Determine the path to build the array
         $levelsDeep = count($fieldset);
 
@@ -75,19 +79,56 @@ class Order
             throw new \Exception("Maximum number of fields iterations reached.");
         }
 
+        #if($fieldset == array("AddOrder", "ShipTo", "OrderShipTo")){
+        #   print_r($validFields);
+
+        #}
+
         // Find required fields that are empty
         foreach($validFields as $field => $attribute)
         {
+            // Top level
             if($attribute == 'required')
             {
-                if(empty($object->$field)) throw new \Exception("Required property '$field'' is empty!");
+                if(empty($object->$field)) throw new \Exception("Required property '$field is empty!");
             }
+
+            // Children
+            if(!is_string($attribute) && !is_integer($attribute)){
+                foreach ($attribute as $childField => $childAttribute)
+                {
+                    if($childAttribute == 'required')
+                    {
+                        if(empty($object->$childField)) throw new \Exception("Required property '$childField' in parent object '$field' is empty!");
+
+                    }
+
+
+                    #print_r($childField); die;
+                }
+
+                #if(!is_string($object->$field)) print_r($object->$field);
+            }
+
+
+            #if(empty($attribute)) echo "EMPTY ATTRIBUTE"; die;
+
+            #print_r($field);
+            // Children
         }
 
         // Check that all fields exists in the valid fields configuration
         foreach($object as $field => $value)
         {
-            if(!isset($validFields[$field])) throw new \Exception("Property '$field' is not a valid property. ");
+            if (!isset($validFields[$field])) throw new \Exception("Property '$field' is not a valid property. ");
+
+            // Children
+            if(!is_string($value) && !is_integer($value)) {
+                foreach ($value as $childField => $childAttribute) {
+                    if(!isset($validFields[$field][$childField])) throw new \Exception("Property '$childField' is not a valid property of '$field'. ");
+                }
+            }
+
         }
 
         // Convert to soapable object
@@ -102,11 +143,23 @@ class Order
         $ArrayObject = new \ArrayObject();
         foreach($object as $parameter => $value)
         {
-            if($append){
-                $ArrayObject->append(new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace));
+            if(is_string($value) || is_integer($value)){
+                if($append){
+                    $ArrayObject->append(new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace));
+                } else {
+                    $ArrayObject->$parameter = new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace);
+                }
             } else {
-                $ArrayObject->$parameter = new \SoapVar($value, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace);
+                #throw new \Exception(gettype($value));
+                foreach($value as $childParameter => $childValue)
+                {
+                    $builtChildSoapObject = new \SoapVar($childValue, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace);
+                    $ArrayObject->$parameter = new \ArrayObject();
+                    $ArrayObject->$parameter->$childParameter = $builtChildSoapObject;
+                }
+
             }
+
 
         }
 
@@ -117,6 +170,14 @@ class Order
     {
 
         $aoAddress = $this->validateFields($a, array("AddOrder", "ShipTo", "OrderShipTo"), true);
+
+        if(isset($aoAddress->SpecialHandling)){
+            #$specialHandling = array();
+            $aoAddress->SpecialHandling = new \SoapVar($aoAddress->SpecialHandling, SOAP_ENC_OBJECT, null, $this->namespace, 'SpecialHandling');
+            #$classification->append(new \SoapVar($sourceDescription, SOAP_ENC_OBJECT, null, $this->namespace, 'Source', $this->namespace ));
+        }
+
+        #print_r($aoAddress); die;
 
         $this->ShipTo->append(new \SoapVar($aoAddress, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderShipTo ', $this->namespace));
 
@@ -130,6 +191,40 @@ class Order
 
         #$this->OrderedBy = new \SoapVar($aoAddress, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderedBy ', $this->namespace);
         $this->OrderedBy = $aoAddress;
+
+        return true;
+    }
+
+    public function setClassification($classificationObject)
+    {
+
+        #$classificationObject = $this->validateFields($c, array("AddOrder", "Classification"), true);
+
+        $classification = new \ArrayObject();
+
+        // Source
+        if(isset($classificationObject->Source)){
+            $sourceDescription = array();
+            $sourceDescription[] = new \SoapVar($classificationObject->Source->Description, XSD_STRING, null, $this->namespace, 'Description');
+            $classification->append(new \SoapVar($sourceDescription, SOAP_ENC_OBJECT, null, $this->namespace, 'Source', $this->namespace ));
+
+        }
+
+        // Project
+        if(isset($classificationObject->CustomerProject)) {
+            $customerProjectID = array();
+            $customerProjectID[] = new \SoapVar($classificationObject->CustomerProject->ID, XSD_STRING, null, $this->namespace, 'ID');
+            $classification->append(new \SoapVar($customerProjectID, SOAP_ENC_OBJECT, null, $this->namespace, 'CustomerProject', $this->namespace ));
+
+        }
+
+        // CampaignID
+        if(isset($classificationObject->CampaignID)) {
+            $classification->append(new \SoapVar($classificationObject->CampaignID, XSD_STRING, null, $this->namespace, 'CampaignID'));
+        }
+
+        // Add
+        $this->Classification = $classification;
 
         return true;
     }
@@ -173,6 +268,7 @@ class Order
         $order->Offers = new \SoapVar($this->Offers, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Offers', $this->namespace);
         $order->Header = new \SoapVar($this->Header, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Header', $this->namespace);
         $order->OrderedBy = new \SoapVar($this->OrderedBy, SOAP_ENC_OBJECT, NULL, $this->namespace, 'OrderedBy', $this->namespace);
+        $order->Classification = new \SoapVar($this->Classification, SOAP_ENC_OBJECT, NULL, $this->namespace, 'Classification', $this->namespace);
 
         return $order;
     }

@@ -38,6 +38,12 @@ class OrderFactory
             $this->order->setOrderedBy($this->simpleOrder->OrderedBy);
         }
 
+        /*
+        // Add Classification
+        if(isset($this->simpleOrder->Classification)){
+            $this->order->setClassification($this->simpleOrder->Classification);
+        }
+*/
 
         return $this->order;
     }

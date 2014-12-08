@@ -18,6 +18,8 @@ AddOrder:
             Country: optional
             Phone: optional
             Email: optional
+            SpecialHandling:
+                Description: optional
     Offers:
         OfferOrdered:
             OfferId: required
