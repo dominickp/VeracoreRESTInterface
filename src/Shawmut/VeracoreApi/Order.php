@@ -153,9 +153,13 @@ class Order
                 #throw new \Exception(gettype($value));
                 foreach($value as $childParameter => $childValue)
                 {
-                    $builtChildSoapObject = new \SoapVar($childValue, XSD_STRING, NULL, $this->namespace, $parameter, $this->namespace);
-                    $ArrayObject->$parameter = new \ArrayObject();
-                    $ArrayObject->$parameter->$childParameter = $builtChildSoapObject;
+                    $builtChildSoapObject = new \SoapVar($childValue, XSD_STRING, NULL, $this->namespace, $childParameter, $this->namespace);
+                    $soapObjectContainer = new \ArrayObject();
+                    #$ArrayObject->$parameter->$childParameter = $builtChildSoapObject;
+                    $soapObjectContainer->append(new \SoapVar($builtChildSoapObject, SOAP_ENC_OBJECT, NULL, $this->namespace, $childParameter, $this->namespace));
+                    $ArrayObject->append(new \SoapVar($soapObjectContainer, SOAP_ENC_OBJECT, NULL, $this->namespace, $parameter, $this->namespace));
+
+                   # print_r($ArrayObject); die;
                 }
 
             }
@@ -171,11 +175,11 @@ class Order
 
         $aoAddress = $this->validateFields($a, array("AddOrder", "ShipTo", "OrderShipTo"), true);
 
-        if(isset($aoAddress->SpecialHandling)){
+        #if(isset($aoAddress->SpecialHandling)){
             #$specialHandling = array();
-            $aoAddress->SpecialHandling = new \SoapVar($aoAddress->SpecialHandling, SOAP_ENC_OBJECT, null, $this->namespace, 'SpecialHandling');
+        #    $aoAddress->SpecialHandling = new \SoapVar($aoAddress->SpecialHandling, SOAP_ENC_OBJECT, null, $this->namespace, 'SpecialHandling');
             #$classification->append(new \SoapVar($sourceDescription, SOAP_ENC_OBJECT, null, $this->namespace, 'Source', $this->namespace ));
-        }
+       # }
 
         #print_r($aoAddress); die;
 
