@@ -4,6 +4,15 @@
             "Comments":"My order comments",
             "PONumber":"MyPO"
         },
+        "Classification":{
+            "CampaignID":"",
+            "Source": {
+                "Description":"Salesforce"
+            },
+            "CustomerProject": {
+                "ID":"03-01"
+            }
+        },
         "ShipTo":[
             {
                 "Key":1,
@@ -12,29 +21,29 @@
                 "Address1":"123 Any St.",
                 "City":"Danvers",
                 "State":"MA",
-                "PostalCode":"01923"
-            },
-            {
-                "Key":2,
-                "FirstName":"Dominick",
-                "LastName":"Peluso",
-                "Address1":"123 Any St.",
-                "City":"Danvers",
-                "State":"MA",
-                "PostalCode":"01923"
+                "PostalCode":"01923",
+                "SpecialHandling": {
+                    "Description":"Fedex Ground"
+                }
             }
         ],
         "Offers":[
             {
                 "Quantity":5,
-                "OfferId":"Golf_Ball",
+                "OfferId":"FS_VNR",
                 "ShipToKey":1
-            },
-            {
-                "Quantity":2,
-                "OfferId":"Golf_Ball",
-                "ShipToKey":2
             }
-        ]
+        ],
+        "OrderedBy": {
+            "FirstName":"Gabe",
+            "LastName":"Peluso",
+            "Address1":"123 Any St.",
+            "Address2":"Apt. #2",
+            "City":"Danvers",
+            "State":"MA",
+            "PostalCode":"01923",
+            "Country":"US",
+            "Email":"gabrielp@shawmutprinting.com"
+        }
     }
 }
