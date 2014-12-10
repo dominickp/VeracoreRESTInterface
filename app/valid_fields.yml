@@ -26,12 +26,12 @@ AddOrder:
             Quantity: required
             ShipToKey: required
     OrderedBy:
-        FirstName: required
-        LastName: required
-        Address1: required
-        City: required
-        State: required
-        PostalCode: required
+        FirstName: optional
+        LastName: optional
+        Address1: optional
+        City: optional
+        State: optional
+        PostalCode: optional
         CompanyName: optional
         Address2: optional
         Address3: optional
