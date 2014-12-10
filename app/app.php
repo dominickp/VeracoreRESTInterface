@@ -141,8 +141,8 @@ $app->post('/order', function (Request $request) use ($app){
 
         $result = $soap->addOrder($order->getOrder());
 
-        $lastRequest = $soap->testSoap();
-        print_r($lastRequest); die;
+        #$lastRequest = $soap->testSoap();
+        #print_r($lastRequest); die;
 
         $jsonResponse = $vr->getResponseSuccess($result);
 

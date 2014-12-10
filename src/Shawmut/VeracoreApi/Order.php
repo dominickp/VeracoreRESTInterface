@@ -202,7 +202,7 @@ class Order
     public function setClassification($classificationObject)
     {
 
-        #$classificationObject = $this->validateFields($c, array("AddOrder", "Classification"), true);
+        $classificationObject = $this->validateFields($classificationObject, array("AddOrder", "Classification"), true);
 
         $classification = new \ArrayObject();
 
@@ -228,7 +228,7 @@ class Order
         }
 
         // Add
-        $this->Classification = $classification;
+        $this->Classification = $classificationObject;
 
         return true;
     }
