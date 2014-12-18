@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddOrder.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddOrder.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/AddOrder.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="880">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3154436" vertical-offset="0" max-vertical-offset="913">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -94,7 +94,7 @@
       <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2992" max-vertical-offset="4672">
+            <state vertical-scroll-proportion="-58.24" vertical-offset="2224" max-vertical-offset="4672">
               <caret line="230" column="53" selection-start-line="230" selection-start-column="53" selection-end-line="230" selection-end-column="53" />
               <folding>
                 <element signature="e#39#73#0#PHP" expanded="true" />
@@ -103,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="valid_fields.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="valid_fields.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/valid_fields.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3411514" vertical-offset="0" max-vertical-offset="938">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="880">
               <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/OrderFactory.php" />
         <option value="$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php" />
         <option value="$PROJECT_DIR$/app/app.php" />
-        <option value="$PROJECT_DIR$/example/AddOrder.json" />
         <option value="$PROJECT_DIR$/app/valid_fields.yml" />
+        <option value="$PROJECT_DIR$/example/AddOrder.json" />
       </list>
     </option>
   </component>
@@ -825,16 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2992" max-vertical-offset="4672">
-          <caret line="230" column="53" selection-start-line="230" selection-start-column="53" selection-end-line="230" selection-end-column="53" />
-          <folding>
-            <element signature="e#39#73#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="2800">
@@ -847,18 +837,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/AddOrder.json">
+    <entry file="file://$PROJECT_DIR$/app/valid_fields.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="880">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="880">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/valid_fields.yml">
+    <entry file="file://$PROJECT_DIR$/src/Shawmut/VeracoreApi/Order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3411514" vertical-offset="0" max-vertical-offset="938">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state vertical-scroll-proportion="-58.24" vertical-offset="2224" max-vertical-offset="4672">
+          <caret line="230" column="53" selection-start-line="230" selection-start-column="53" selection-end-line="230" selection-end-column="53" />
+          <folding>
+            <element signature="e#39#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/AddOrder.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3154436" vertical-offset="0" max-vertical-offset="913">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding />
         </state>
       </provider>

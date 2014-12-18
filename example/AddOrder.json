@@ -16,6 +16,7 @@
         "ShipTo":[
             {
                 "Key":1,
+                "Rush":"true",
                 "FirstName":"Gabe",
                 "LastName":"Peluso",
                 "Address1":"123 Any St.",
