@@ -18,6 +18,7 @@ AddOrder:
             Country: optional
             Phone: optional
             Email: optional
+            Rush: optional
             SpecialHandling:
                 Description: optional
     Offers:
