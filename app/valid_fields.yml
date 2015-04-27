@@ -12,7 +12,7 @@ AddOrder:
             City: required
             State: required
             PostalCode: required
-            Company: optional
+            CompanyName: optional
             Address2: optional
             Address3: optional
             Country: optional
