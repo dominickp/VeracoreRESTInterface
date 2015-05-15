@@ -2,6 +2,33 @@ VeracoreRESTInterface
 ===========
 This project is a REST API built on Silex as a wrapper for Veracore's SOAP API. All methods require *application/json* as the request content type.
 
+## Install
+Clone the repo, install Composer, and then run 'php composer.phar install'. 
+
+## Usage
+To use this project, you'll have to set an "Authorization" header when making requests. The "Authorization" header should be the Veracore web services credentials (created in Veracore PMA) as a base64 encoded JSON object. Here is an example:
+
+```php
+    // Build credentials object
+    $credentials = new \stdClass();
+    $credentials->username = 'myTestUser'
+    $credentials->password = 'myTestPass';
+    
+    // Encode
+    $authorization = base64_encode(json_encode($credentials)); // eyJ1c2VybmFtZSI6Im15VGVzdFVzZXIiLCJwYXNzd29yZCI6Im15VGVzdFBhc3MifQ==
+    
+    // Example of setting headers with CURL
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Authorization: ' . $authorization
+      )
+    );
+```
+
+To test the requests using something like Postman, you'll need to set the Authorization header as the base64 encoded string like so:
+
+![Postman auhorization example](https://i.imgur.com/JpbVNPW.png "Postman auhorization example")
+
 ## Methods
 ###AddOrder
 Submits an order into Veracore. See the [AddOrder example JSON](https://github.com/dominickp/VeracoreREST/blob/master/example/AddOrder.json).
