@@ -1,6 +1,6 @@
-VeracoreApi
+VeracoreRESTInterface
 ===========
-The plan is to develop a REST API built on Silex as a wrapper for Veracore's SOAP API. All methods require *application/json* as the request content type.
+This project is a REST API built on Silex as a wrapper for Veracore's SOAP API. All methods require *application/json* as the request content type.
 
 ## Methods
 ###AddOrder
