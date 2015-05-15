@@ -11,7 +11,7 @@ To use this project, you'll have to set an "Authorization" header when making re
 ```php
     // Build credentials object
     $credentials = new \stdClass();
-    $credentials->username = 'myTestUser'
+    $credentials->username = 'myTestUser';
     $credentials->password = 'myTestPass';
     
     // Encode
